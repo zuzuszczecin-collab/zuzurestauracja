@@ -1,0 +1,1410 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Restauracja ZUZU | Catering i imprezy Szczecin</title>
+
+  <meta name="description" content="Restauracja ZUZU w Szczecinie. Wynajem sali, catering, komunie, urodziny, imprezy rodzinne, firmowe, Wigilie i Sylwester.">
+
+  <style>
+
+    /* =====================================================
+       ZUZU - KOLORY
+    ===================================================== */
+
+    :root {
+      --black: #121212;
+      --black2: #1c1c1c;
+      --black3: #252525;
+
+      --pink: #e8a5b9;
+      --pink-light: #f6d5df;
+      --pink-dark: #c77891;
+
+      --gold: #d8b56a;
+      --gold-light: #f0d69d;
+
+      --white: #ffffff;
+      --cream: #fffaf6;
+      --grey: #bcbcbc;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--cream);
+      color: #272727;
+      line-height: 1.6;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1180px, 92%);
+      margin: auto;
+    }
+
+    .section {
+      padding: 90px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 45px;
+    }
+
+    .section-title span {
+      color: var(--pink-dark);
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    .section-title h2 {
+      font-size: clamp(32px, 5vw, 52px);
+      color: var(--black);
+      margin-top: 5px;
+      line-height: 1.1;
+    }
+
+    .section-title p {
+      max-width: 700px;
+      margin: 15px auto 0;
+      color: #666;
+    }
+
+    /* =====================================================
+       MENU
+    ===================================================== */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 9999;
+      background: rgba(18, 18, 18, 0.97);
+      border-bottom: 1px solid rgba(216,181,106,0.25);
+      backdrop-filter: blur(8px);
+    }
+
+    .navbar {
+      min-height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 25px;
+    }
+
+    .logo {
+      color: white;
+      font-weight: 900;
+      font-size: 31px;
+      letter-spacing: 4px;
+    }
+
+    .logo span {
+      color: var(--pink);
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+    }
+
+    nav a {
+      color: #fff;
+      font-size: 14px;
+      font-weight: 700;
+      transition: 0.2s;
+      position: relative;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      height: 2px;
+      width: 0;
+      left: 0;
+      bottom: -7px;
+      background: var(--pink);
+      transition: 0.25s;
+    }
+
+    nav a:hover {
+      color: var(--pink-light);
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    .menu-button {
+      display: none;
+      background: transparent;
+      color: white;
+      border: 0;
+      font-size: 27px;
+      cursor: pointer;
+    }
+
+    /* =====================================================
+       HERO
+    ===================================================== */
+
+    .hero {
+      min-height: 86vh;
+      display: flex;
+      align-items: center;
+      text-align: center;
+
+      background:
+        radial-gradient(circle at 20% 20%, rgba(232,165,185,0.17), transparent 35%),
+        radial-gradient(circle at 80% 70%, rgba(216,181,106,0.16), transparent 35%),
+        linear-gradient(135deg, #101010, #202020);
+
+      color: white;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .hero::before {
+      content: "✦";
+      position: absolute;
+      top: 15%;
+      left: 8%;
+      font-size: 70px;
+      color: rgba(216,181,106,0.12);
+    }
+
+    .hero::after {
+      content: "✦";
+      position: absolute;
+      right: 8%;
+      bottom: 12%;
+      font-size: 110px;
+      color: rgba(232,165,185,0.10);
+    }
+
+    .hero-content {
+      width: min(900px, 92%);
+      margin: auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-small {
+      color: var(--gold-light);
+      text-transform: uppercase;
+      letter-spacing: 5px;
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .hero h1 {
+      font-size: clamp(55px, 10vw, 105px);
+      line-height: .95;
+      margin: 20px 0;
+      letter-spacing: 2px;
+    }
+
+    .hero h1 span {
+      color: var(--pink);
+    }
+
+    .hero p {
+      max-width: 720px;
+      margin: 0 auto;
+      color: #dedede;
+      font-size: 19px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-top: 35px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 15px 28px;
+      border-radius: 50px;
+      font-weight: 800;
+      transition: .25s;
+      cursor: pointer;
+      border: none;
+    }
+
+    .button-pink {
+      background: var(--pink);
+      color: #171717;
+    }
+
+    .button-pink:hover {
+      background: var(--pink-light);
+      transform: translateY(-2px);
+    }
+
+    .button-outline {
+      border: 1px solid var(--gold);
+      color: var(--gold-light);
+      background: transparent;
+    }
+
+    .button-outline:hover {
+      background: var(--gold);
+      color: #111;
+    }
+
+    /* =====================================================
+       O NAS
+    ===================================================== */
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .about-card {
+      background: var(--black);
+      min-height: 420px;
+      border-radius: 28px;
+      padding: 45px;
+      display: flex;
+      align-items: flex-end;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .about-card::before {
+      content: "ZUZU";
+      position: absolute;
+      font-size: 130px;
+      font-weight: 900;
+      top: 40px;
+      left: 25px;
+      color: rgba(255,255,255,.035);
+    }
+
+    .about-card-inner {
+      color: white;
+      position: relative;
+      z-index: 2;
+    }
+
+    .about-card-inner strong {
+      color: var(--pink);
+      font-size: 25px;
+    }
+
+    .about-text h3 {
+      font-size: 35px;
+      margin-bottom: 20px;
+    }
+
+    .about-text p {
+      margin-bottom: 17px;
+      color: #555;
+    }
+
+    .check-list {
+      margin-top: 25px;
+      display: grid;
+      gap: 12px;
+    }
+
+    .check-list div {
+      background: white;
+      padding: 12px 15px;
+      border-left: 4px solid var(--pink);
+      box-shadow: 0 4px 20px rgba(0,0,0,.06);
+    }
+
+    /* =====================================================
+       IMPREZY
+    ===================================================== */
+
+    .dark-section {
+      background: var(--black);
+      color: white;
+    }
+
+    .dark-section .section-title h2 {
+      color: white;
+    }
+
+    .dark-section .section-title p {
+      color: #aaa;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .card {
+      background: var(--black2);
+      border-radius: 24px;
+      padding: 33px;
+      border: 1px solid #333;
+      transition: .25s;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      border-color: var(--pink);
+    }
+
+    .card-icon {
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+      background: rgba(232,165,185,.12);
+      display: grid;
+      place-items: center;
+      font-size: 26px;
+      margin-bottom: 22px;
+    }
+
+    .card h3 {
+      font-size: 24px;
+      margin-bottom: 12px;
+    }
+
+    .card p {
+      color: #aaa;
+    }
+
+    /* =====================================================
+       CATERING
+    ===================================================== */
+
+    .catering-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 25px;
+    }
+
+    .catering-box {
+      background: white;
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: 0 8px 35px rgba(0,0,0,.08);
+      border-top: 5px solid var(--pink);
+    }
+
+    .catering-box h3 {
+      margin-bottom: 10px;
+      font-size: 23px;
+    }
+
+    .catering-box p {
+      color: #666;
+    }
+
+    /* =====================================================
+       WYDARZENIA SPECJALNE
+    ===================================================== */
+
+    .special-card {
+      border-radius: 28px;
+      padding: 45px;
+      min-height: 330px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .special-card h3 {
+      font-size: 35px;
+      margin-bottom: 10px;
+    }
+
+    .special-card p {
+      max-width: 500px;
+    }
+
+    .communion {
+      background:
+        linear-gradient(rgba(255,255,255,.76), rgba(255,255,255,.92)),
+        linear-gradient(135deg, #f5d9e1, #fff);
+      color: #202020;
+    }
+
+    .christmas {
+      background:
+        radial-gradient(circle at top right, rgba(216,181,106,.25), transparent 40%),
+        #17221c;
+      color: white;
+    }
+
+    .newyear {
+      background:
+        radial-gradient(circle at top left, rgba(232,165,185,.25), transparent 40%),
+        #161616;
+      color: white;
+    }
+
+    .special-wrapper {
+      display: grid;
+      gap: 30px;
+    }
+
+    .price {
+      display: inline-flex;
+      width: fit-content;
+      margin-top: 15px;
+      font-size: 20px;
+      font-weight: 900;
+      color: var(--pink-dark);
+    }
+
+    .christmas .price,
+    .newyear .price {
+      color: var(--gold-light);
+    }
+
+    /* =====================================================
+       WYBÓR CATERINGU
+    ===================================================== */
+
+    .chooser {
+      max-width: 880px;
+      margin: auto;
+      background: white;
+      border-radius: 28px;
+      box-shadow: 0 10px 45px rgba(0,0,0,.08);
+      overflow: hidden;
+    }
+
+    .chooser-header {
+      background: var(--black);
+      padding: 30px;
+      color: white;
+      text-align: center;
+    }
+
+    .chooser-content {
+      padding: 30px;
+    }
+
+    .choose-group {
+      margin-bottom: 28px;
+    }
+
+    .choose-group h3 {
+      margin-bottom: 15px;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 10px;
+    }
+
+    .choose-option {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 11px 0;
+    }
+
+    .choose-option input {
+      width: 20px;
+      height: 20px;
+      accent-color: var(--pink-dark);
+    }
+
+    /* =====================================================
+       KONTAKT
+    ===================================================== */
+
+    .contact-section {
+      background:
+        radial-gradient(circle at 70% 30%, rgba(232,165,185,.15), transparent 35%),
+        #111;
+      color: white;
+    }
+
+    .contact-section .section-title h2 {
+      color: white;
+    }
+
+    .contact-section .section-title p {
+      color: #aaa;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 35px;
+    }
+
+    .contact-box {
+      background: var(--black2);
+      padding: 35px;
+      border-radius: 25px;
+      border: 1px solid #333;
+    }
+
+    .contact-box h3 {
+      color: var(--pink);
+      margin-bottom: 15px;
+      font-size: 24px;
+    }
+
+    .contact-line {
+      margin-bottom: 12px;
+      color: #ddd;
+    }
+
+    .contact-line a {
+      color: white;
+    }
+
+    .contact-line a:hover {
+      color: var(--pink);
+    }
+
+    /* =====================================================
+       FOOTER
+    ===================================================== */
+
+    footer {
+      background: #080808;
+      color: #888;
+      text-align: center;
+      padding: 28px;
+      font-size: 13px;
+    }
+
+    /* =====================================================
+       MOBILE
+    ===================================================== */
+
+    @media (max-width: 900px) {
+
+      .menu-button {
+        display: block;
+      }
+
+      nav {
+        position: absolute;
+        top: 78px;
+        left: 0;
+        width: 100%;
+        background: #121212;
+        flex-direction: column;
+        align-items: stretch;
+        padding: 20px;
+        gap: 0;
+        display: none;
+        border-top: 1px solid #333;
+      }
+
+      nav.active {
+        display: flex;
+      }
+
+      nav a {
+        padding: 15px 10px;
+        border-bottom: 1px solid #292929;
+      }
+
+      .about-grid,
+      .contact-grid,
+      .catering-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .about-card {
+        min-height: 300px;
+      }
+
+      .section {
+        padding: 65px 0;
+      }
+
+      .hero {
+        min-height: 75vh;
+      }
+
+      .special-card {
+        padding: 30px;
+      }
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     MENU
+===================================================== -->
+
+<header>
+
+  <div class="container navbar">
+
+    <a href="#start" class="logo">
+      ZU<span>ZU</span>
+    </a>
+
+    <button class="menu-button" id="menuButton">
+      ☰
+    </button>
+
+    <nav id="menu">
+
+      <a href="#onas">O nas</a>
+
+      <a href="#imprezy">Imprezy</a>
+
+      <a href="#catering">Catering</a>
+
+      <a href="#wydarzenia">Wydarzenia specjalne</a>
+
+      <a href="#wybor">Wybór cateringu</a>
+
+      <a href="#kontakt">Kontakt</a>
+
+    </nav>
+
+  </div>
+
+</header>
+
+
+
+<!-- =====================================================
+     START
+===================================================== -->
+
+<section class="hero" id="start">
+
+  <div class="hero-content">
+
+    <div class="hero-small">
+      Restauracja • Catering • Imprezy
+    </div>
+
+    <h1>
+      RESTAURACJA <span>ZUZU</span>
+    </h1>
+
+    <p>
+      Tworzymy miejsce na małe i duże okazje.
+      Rodzinne przyjęcia, urodziny, komunie, spotkania firmowe,
+      catering i wydarzenia specjalne w samym Szczecinie.
+    </p>
+
+    <div class="hero-buttons">
+
+      <a href="#imprezy" class="button button-pink">
+        Zobacz ofertę
+      </a>
+
+      <a href="#kontakt" class="button button-outline">
+        Zarezerwuj termin
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     O NAS
+===================================================== -->
+
+<section class="section" id="onas">
+
+  <div class="container">
+
+    <div class="section-title">
+
+      <span>Poznaj nas</span>
+
+      <h2>O nas</h2>
+
+      <p>
+        ZUZU to kameralne miejsce stworzone z myślą o przyjęciach,
+        spotkaniach i wspólnym świętowaniu.
+      </p>
+
+    </div>
+
+
+    <div class="about-grid">
+
+      <div class="about-card">
+
+        <div class="about-card-inner">
+
+          <strong>ZUZU</strong>
+
+          <h3>
+            Wasza impreza.<br>
+            Wasze zasady.
+          </h3>
+
+        </div>
+
+      </div>
+
+
+      <div class="about-text">
+
+        <h3>
+          Sala na wyłączność
+        </h3>
+
+        <p>
+          Organizujemy kameralne imprezy rodzinne i firmowe.
+          Dzięki wynajęciu całej przestrzeni możesz czuć się swobodnie
+          i świętować wyłącznie w swoim gronie.
+        </p>
+
+        <p>
+          Do dyspozycji gości pozostaje dwupoziomowa przestrzeń,
+          pełna zastawa, miejsce dla dzieci oraz możliwość zamówienia
+          cateringu ZUZU.
+        </p>
+
+        <div class="check-list">
+
+          <div>✓ sala na wyłączność</div>
+
+          <div>✓ maksymalnie do około 35 osób</div>
+
+          <div>✓ catering ZUZU</div>
+
+          <div>✓ możliwość własnych napojów i alkoholu</div>
+
+          <div>✓ kącik dla dzieci</div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     IMPREZY
+===================================================== -->
+
+<section class="section dark-section" id="imprezy">
+
+  <div class="container">
+
+    <div class="section-title">
+
+      <span>Świętuj z nami</span>
+
+      <h2>Imprezy w ZUZU</h2>
+
+      <p>
+        Ty zapraszasz gości. My dajemy miejsce i pomagamy ogarnąć resztę.
+      </p>
+
+    </div>
+
+
+    <div class="cards">
+
+
+      <div class="card">
+
+        <div class="card-icon">
+          🎂
+        </div>
+
+        <h3>Urodziny</h3>
+
+        <p>
+          Urodziny dorosłych, urodziny dzieci, roczki
+          i rodzinne spotkania.
+        </p>
+
+      </div>
+
+
+      <div class="card">
+
+        <div class="card-icon">
+          🥂
+        </div>
+
+        <h3>Imprezy rodzinne</h3>
+
+        <p>
+          Chrzciny, rocznice, baby shower,
+          wieczory panieńskie i inne okazje.
+        </p>
+
+      </div>
+
+
+      <div class="card">
+
+        <div class="card-icon">
+          💼
+        </div>
+
+        <h3>Imprezy firmowe</h3>
+
+        <p>
+          Spotkania zespołu, integracje,
+          kolacje oraz Wigilie firmowe.
+        </p>
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     CATERING
+===================================================== -->
+
+<section class="section" id="catering">
+
+  <div class="container">
+
+    <div class="section-title">
+
+      <span>Jedzenie od ZUZU</span>
+
+      <h2>Catering</h2>
+
+      <p>
+        Catering możesz zamówić zarówno na imprezę organizowaną
+        w naszym lokalu, jak i na wynos.
+      </p>
+
+    </div>
+
+
+    <div class="catering-grid">
+
+
+      <div class="catering-box">
+
+        <h3>🥗 Sałatki</h3>
+
+        <p>
+          Klasyczne i imprezowe propozycje.
+          Wybierz smaki najlepiej pasujące do Twoich gości.
+        </p>
+
+      </div>
+
+
+      <div class="catering-box">
+
+        <h3>🥪 Zimne przekąski</h3>
+
+        <p>
+          Mini burgery, tortille, koreczki, tartaletki,
+          kanapeczki i wiele innych.
+        </p>
+
+      </div>
+
+
+      <div class="catering-box">
+
+        <h3>🍲 Dania ciepłe</h3>
+
+        <p>
+          Zupy, mięsa, dania obiadowe oraz propozycje
+          przygotowywane według ustaleń.
+        </p>
+
+      </div>
+
+
+      <div class="catering-box">
+
+        <h3>🧀 Deski i boxy</h3>
+
+        <p>
+          Deski serów i mięs oraz gotowe imprezowe boxy,
+          idealne na stół.
+        </p>
+
+      </div>
+
+
+    </div>
+
+
+    <div style="text-align:center; margin-top:40px;">
+
+      <a href="#wybor" class="button button-pink">
+        Wybierz catering
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     WYDARZENIA SPECJALNE
+===================================================== -->
+
+<section class="section dark-section" id="wydarzenia">
+
+  <div class="container">
+
+    <div class="section-title">
+
+      <span>Oferta sezonowa</span>
+
+      <h2>Wydarzenia specjalne</h2>
+
+      <p>
+        Przygotowaliśmy specjalne warianty na najważniejsze okazje.
+      </p>
+
+    </div>
+
+
+    <div class="special-wrapper">
+
+
+      <!-- KOMUNIA -->
+
+      <div class="special-card communion">
+
+        <h3>
+          Komunie 2027
+        </h3>
+
+        <p>
+          Kameralne przyjęcie komunijne.
+          Sala na wyłączność, pełna obsługa,
+          menu oraz przestrzeń dla dzieci.
+        </p>
+
+        <div class="price">
+          210 zł / osoba
+        </div>
+
+      </div>
+
+
+      <!-- WIGILIA -->
+
+      <div class="special-card christmas">
+
+        <h3>
+          Wigilia firmowa
+        </h3>
+
+        <p>
+          Świąteczne spotkanie zespołu w kameralnej atmosferze.
+          Sala na wyłączność oraz 6 potraw wigilijnych
+          według indywidualnych ustaleń.
+        </p>
+
+        <div class="price">
+          200 zł / osoba
+        </div>
+
+      </div>
+
+
+      <!-- SYLWESTER -->
+
+      <div class="special-card newyear">
+
+        <h3>
+          Sylwester 2026 / 2027
+        </h3>
+
+        <p>
+          Cała sala na wyłączność od godziny 19:00 aż do 6:00 rano.
+          Maksymalnie 25 osób. Catering dostępny w kilku wariantach.
+        </p>
+
+        <div class="price">
+          wynajem sali 2500 zł
+        </div>
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     WYBÓR CATERINGU
+===================================================== -->
+
+<section class="section" id="wybor">
+
+  <div class="container">
+
+    <div class="section-title">
+
+      <span>Stwórz własny zestaw</span>
+
+      <h2>Wybór cateringu</h2>
+
+      <p>
+        Zaznacz interesujące Cię pozycje.
+        Szczegóły oraz ilości ustalimy wspólnie.
+      </p>
+
+    </div>
+
+
+    <div class="chooser">
+
+
+      <div class="chooser-header">
+
+        <h2>
+          Karta wyboru cateringu
+        </h2>
+
+      </div>
+
+
+      <div class="chooser-content">
+
+
+        <!-- SAŁATKI -->
+
+        <div class="choose-group">
+
+          <h3>
+            Sałatki
+          </h3>
+
+          <label class="choose-option">
+            <input type="checkbox">
+            Jarzynowa
+          </label>
+
+          <label class="choose-option">
+            <input type="checkbox">
+            Makaronowa
+          </label>
+
+          <label class="choose-option">
+            <input type="checkbox">
+            Gyros
+          </label>
+
+          <label class="choose-option">
+            <input type="checkbox">
+            Brokułowa
+          </label>
+
+        </div>
+
+
+        <!-- ZIMNE -->
+
+        <div class="choose-group">
+
+          <h3>
+            Zimne przekąski
+          </h3>
+
+          <label class="choose-option">
+            <input type="checkbox">
+            Mini burgery
+          </label>
+
+          <label class="choose-option">
+            <input type="checkbox">
+            Mini tortille
+          </label>
+
+          <label class="choose-option">
+            <input type="checkbox">
+            Koreczki
+          </label>
+
+          <label class="choose-option">
+            <input type="checkbox">
+            Kanapeczki
+          </label>
+
+          <label class="choose-option">
+            <input type="checkbox">
+            Tartaletki
+          </label>
+
+          <label class="choose-option">
+            <input type="checkbox">
+            Ślimaczki z ciasta francuskiego
+          </label>
+
+        </div>
+
+
+        <!-- DESKI -->
+
+        <div class="choose-group">
+
+          <h3>
+            Deski
+          </h3>
+
+          <label class="choose-option">
+            <input type="checkbox">
+            Deska mięs
+          </label>
+
+          <label class="choose-option">
+            <input type="checkbox">
+            Deska serów
+          </label>
+
+        </div>
+
+
+        <!-- BOXY -->
+
+        <div class="choose-group">
+
+          <h3>
+            Boxy
+          </h3>
+
+          <label class="choose-option">
+            <input type="checkbox">
+            Snack Box
+          </label>
+
+          <label class="choose-option">
+            <input type="checkbox">
+            Vegetable Box
+          </label>
+
+          <label class="choose-option">
+            <input type="checkbox">
+            Mix Party Box
+          </label>
+
+          <label class="choose-option">
+            <input type="checkbox">
+            Kids Box
+          </label>
+
+        </div>
+
+
+        <div style="text-align:center;">
+
+          <a
+            href="tel:798150723"
+            class="button button-pink"
+          >
+            Ustal zamówienie
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     KONTAKT
+===================================================== -->
+
+<section class="section contact-section" id="kontakt">
+
+  <div class="container">
+
+    <div class="section-title">
+
+      <span>Zarezerwuj termin</span>
+
+      <h2>Kontakt</h2>
+
+      <p>
+        Chcesz zorganizować imprezę albo zamówić catering?
+        Odezwij się do nas.
+      </p>
+
+    </div>
+
+
+    <div class="contact-grid">
+
+
+      <div class="contact-box">
+
+        <h3>
+          Restauracja ZUZU
+        </h3>
+
+        <div class="contact-line">
+          📍 Witkiewicza 58/U18
+        </div>
+
+        <div class="contact-line">
+          Szczecin
+        </div>
+
+        <div class="contact-line">
+
+          📞
+          <a href="tel:798150723">
+            798 150 723
+          </a>
+
+        </div>
+
+        <div class="contact-line">
+
+          ✉
+          <a href="mailto:zuzu.szczecin@gmail.com">
+            zuzu.szczecin@gmail.com
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <div class="contact-box">
+
+        <h3>
+          Zapytaj o wolny termin
+        </h3>
+
+        <p style="color:#aaa; margin-bottom:25px;">
+
+          Napisz lub zadzwoń.
+          Powiedz nam, jaki rodzaj imprezy planujesz,
+          na ile osób i w jakim terminie.
+
+        </p>
+
+        <a
+          class="button button-pink"
+          href="tel:798150723"
+        >
+          📞 Zadzwoń 798 150 723
+        </a>
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     STOPKA
+===================================================== -->
+
+<footer>
+
+  © 2026 Restauracja ZUZU • Szczecin
+
+</footer>
+
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script>
+
+  const menuButton =
+    document.getElementById("menuButton");
+
+  const menu =
+    document.getElementById("menu");
+
+
+  menuButton.addEventListener("click", function() {
+
+    menu.classList.toggle("active");
+
+  });
+
+
+  document.querySelectorAll("nav a").forEach(link => {
+
+    link.addEventListener("click", () => {
+
+      menu.classList.remove("active");
+
+    });
+
+  });
+
+</script>
+
+
+</body>
+</html>
