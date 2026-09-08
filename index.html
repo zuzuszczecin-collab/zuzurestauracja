@@ -5,9 +5,18 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Restauracja ZUZU | Szczecin</title>
+<title>Restauracja ZUZU | Catering i imprezy Szczecin</title>
 
 <style>
+
+:root{
+    --pink:#ff3b9d;
+    --blue:#38d9ff;
+    --gold:#ffbd35;
+    --dark:#050509;
+    --card:#111119;
+    --white:#ffffff;
+}
 
 *{
     margin:0;
@@ -19,20 +28,15 @@ html{
     scroll-behavior:smooth;
 }
 
-:root{
-    --pink:#ff3b9d;
-    --blue:#38d9ff;
-    --gold:#ffbd35;
-    --dark:#050509;
-    --card:#111119;
-    --white:#ffffff;
-}
-
 body{
-    background:#050509;
-    color:#fff;
+    background:var(--dark);
+    color:white;
     font-family:Arial, Helvetica, sans-serif;
     line-height:1.6;
+}
+
+body.modal-open{
+    overflow:hidden;
 }
 
 img{
@@ -41,8 +45,8 @@ img{
 }
 
 a{
-    text-decoration:none;
     color:inherit;
+    text-decoration:none;
 }
 
 .container{
@@ -50,30 +54,60 @@ a{
     margin:auto;
 }
 
+.section{
+    padding:95px 0;
+}
 
-/* =========================================
-   HEADER
-========================================= */
+.section-title{
+    text-align:center;
+    margin-bottom:50px;
+}
+
+.section-title span{
+    color:var(--gold);
+    text-transform:uppercase;
+    letter-spacing:4px;
+    font-size:13px;
+    font-weight:800;
+}
+
+.section-title h2{
+    font-size:clamp(34px,5vw,54px);
+    margin-top:7px;
+    color:var(--pink);
+    text-transform:uppercase;
+    text-shadow:0 0 18px rgba(255,59,157,.35);
+}
+
+.section-title p{
+    color:#bbb;
+    max-width:760px;
+    margin:14px auto 0;
+}
+
+
+/* ==============================
+   MENU
+============================== */
 
 header{
-    position:fixed;
+    position:sticky;
     top:0;
-    left:0;
-    width:100%;
-    z-index:1000;
+    z-index:10000;
 
-    background:rgba(5,5,9,.94);
-    backdrop-filter:blur(15px);
+    background:rgba(5,5,9,.95);
 
     border-bottom:1px solid rgba(255,59,157,.35);
+
+    backdrop-filter:blur(12px);
 }
 
 .navbar{
-    min-height:85px;
+    min-height:84px;
 
     display:flex;
-    align-items:center;
     justify-content:space-between;
+    align-items:center;
 
     gap:25px;
 }
@@ -81,53 +115,47 @@ header{
 .logo-area{
     display:flex;
     align-items:center;
-    gap:15px;
+    gap:13px;
 }
 
 .logo-area img{
-    width:65px;
-    height:65px;
+    width:62px;
+    height:62px;
+
     border-radius:50%;
+
     object-fit:cover;
 
     border:2px solid var(--pink);
 
     box-shadow:
-        0 0 10px var(--pink),
-        0 0 25px rgba(255,59,157,.45);
+        0 0 15px rgba(255,59,157,.6);
 }
 
 .logo-text{
-    font-size:24px;
+    font-size:22px;
     font-weight:900;
     letter-spacing:2px;
+}
 
+.logo-text span{
     color:var(--pink);
-
-    text-shadow:
-        0 0 8px var(--pink);
 }
 
 nav{
     display:flex;
     align-items:center;
-    gap:25px;
+    gap:23px;
 }
 
 nav a{
     font-size:14px;
-    font-weight:bold;
-    text-transform:uppercase;
-    letter-spacing:1px;
-
+    font-weight:700;
     transition:.25s;
 }
 
 nav a:hover{
     color:var(--pink);
-
-    text-shadow:
-        0 0 8px var(--pink);
 }
 
 .menu-button{
@@ -136,65 +164,50 @@ nav a:hover{
     background:none;
     border:none;
 
-    color:#fff;
+    color:white;
+
     font-size:30px;
 
     cursor:pointer;
 }
 
 
-/* =========================================
+/* ==============================
    HERO
-========================================= */
+============================== */
 
 .hero{
-    min-height:100vh;
+    min-height:88vh;
 
     display:flex;
     align-items:center;
     justify-content:center;
 
-    position:relative;
+    text-align:center;
 
-    padding-top:85px;
+    position:relative;
 
     background:
         linear-gradient(
-            rgba(0,0,0,.30),
-            rgba(0,0,0,.75)
+            rgba(0,0,0,.32),
+            rgba(0,0,0,.78)
         ),
-        url("tlo.png");
+        url("zdjęciewtle.jpg");
 
     background-size:cover;
     background-position:center;
-}
-
-.hero::after{
-    content:"";
-
-    position:absolute;
-    inset:0;
-
-    background:
-        radial-gradient(
-            circle at center,
-            transparent 20%,
-            rgba(0,0,0,.75) 100%
-        );
+    background-repeat:no-repeat;
 }
 
 .hero-content{
+    width:min(900px,92%);
     position:relative;
     z-index:2;
-
-    text-align:center;
-
-    max-width:850px;
 }
 
 .hero-logo{
-    width:270px;
-    height:270px;
+    width:200px;
+    height:200px;
 
     object-fit:cover;
 
@@ -202,48 +215,35 @@ nav a:hover{
 
     margin:0 auto 25px;
 
-    border:3px solid var(--pink);
+    border:4px solid var(--pink);
 
     box-shadow:
-        0 0 20px var(--pink),
-        0 0 60px rgba(255,59,157,.55);
+        0 0 25px rgba(255,59,157,.8),
+        0 0 60px rgba(56,217,255,.25);
 }
 
 .hero h1{
-    font-size:clamp(42px,7vw,80px);
+    font-size:clamp(50px,8vw,95px);
+    line-height:.95;
 
-    color:var(--pink);
-
-    text-transform:uppercase;
-
-    letter-spacing:5px;
+    color:white;
 
     text-shadow:
-        0 0 10px var(--pink),
-        0 0 30px rgba(255,59,157,.7);
+        0 0 18px rgba(255,59,157,.4);
 }
 
-.hero h2{
-    font-size:clamp(22px,4vw,40px);
-
-    color:var(--blue);
-
-    margin-top:5px;
-
-    letter-spacing:5px;
-
-    text-transform:uppercase;
-
-    text-shadow:
-        0 0 10px var(--blue);
+.hero h1 span{
+    color:var(--pink);
 }
 
 .hero p{
-    margin:25px auto;
+    max-width:760px;
 
-    max-width:700px;
+    margin:22px auto 0;
 
-    font-size:21px;
+    font-size:20px;
+
+    color:#f1f1f1;
 }
 
 .hero-buttons{
@@ -253,124 +253,90 @@ nav a:hover{
 
     gap:15px;
 
-    margin-top:30px;
+    margin-top:35px;
 }
 
 .button{
     display:inline-block;
 
-    padding:14px 28px;
+    padding:15px 29px;
 
     border-radius:50px;
 
-    font-weight:bold;
-
-    text-transform:uppercase;
-
-    letter-spacing:1px;
+    font-weight:900;
 
     transition:.25s;
 }
 
 .button-pink{
     background:var(--pink);
-    color:#fff;
+    color:white;
 
     box-shadow:
-        0 0 20px rgba(255,59,157,.55);
+        0 0 20px rgba(255,59,157,.35);
 }
 
 .button-blue{
-    border:2px solid var(--blue);
-
     color:var(--blue);
 
-    box-shadow:
-        0 0 15px rgba(56,217,255,.25);
+    border:2px solid var(--blue);
+
+    background:rgba(0,0,0,.35);
 }
 
 .button:hover{
-    transform:translateY(-3px) scale(1.02);
+    transform:translateY(-3px);
 }
 
 
-/* =========================================
-   SEKCJE
-========================================= */
-
-.section{
-    padding:100px 0;
-}
-
-.section:nth-of-type(even){
-    background:#09090f;
-}
-
-.section-title{
-    text-align:center;
-
-    margin-bottom:55px;
-}
-
-.section-title span{
-    color:var(--gold);
-
-    text-transform:uppercase;
-
-    letter-spacing:4px;
-
-    font-size:13px;
-    font-weight:bold;
-}
-
-.section-title h2{
-    margin-top:8px;
-
-    font-size:clamp(32px,5vw,52px);
-
-    color:var(--pink);
-
-    text-transform:uppercase;
-
-    text-shadow:
-        0 0 15px rgba(255,59,157,.4);
-}
-
-.section-title p{
-    max-width:750px;
-
-    margin:15px auto 0;
-
-    color:#ccc;
-
-    font-size:17px;
-}
-
-
-/* =========================================
+/* ==============================
    O NAS
-========================================= */
+============================== */
+
+.about{
+    background:#0b0b10;
+}
 
 .about-grid{
     display:grid;
 
-    grid-template-columns:1fr 1fr;
+    grid-template-columns:1.1fr .9fr;
 
-    gap:45px;
+    gap:50px;
 
     align-items:center;
 }
 
-.about-text h3{
-    color:var(--blue);
+.floor-plan{
+    background:#101017;
 
-    font-size:30px;
+    padding:15px;
+
+    border-radius:25px;
+
+    border:1px solid var(--blue);
+
+    box-shadow:
+        0 0 30px rgba(56,217,255,.18);
+}
+
+.floor-plan img{
+    width:100%;
+    border-radius:18px;
+    cursor:pointer;
+}
+
+.about-text h3{
+    font-size:36px;
+    line-height:1.15;
+
+    color:var(--blue);
 
     margin-bottom:20px;
 }
 
 .about-text p{
-    color:#ddd;
+    color:#ccc;
 
     margin-bottom:17px;
 }
@@ -386,38 +352,19 @@ nav a:hover{
 }
 
 .about-point{
-    padding:15px;
+    background:#12121a;
 
-    border:1px solid #292929;
+    border-left:4px solid var(--pink);
 
-    border-radius:15px;
+    padding:14px 15px;
 
-    background:#101017;
-}
-
-.about-point strong{
-    color:var(--pink);
-}
-
-.floor-plan{
-    border-radius:25px;
-
-    overflow:hidden;
-
-    border:2px solid var(--blue);
-
-    box-shadow:
-        0 0 30px rgba(56,217,255,.22);
-}
-
-.floor-plan img{
-    width:100%;
+    border-radius:9px;
 }
 
 
-/* =========================================
+/* ==============================
    IMPREZY
-========================================= */
+============================== */
 
 .party-grid{
     display:grid;
@@ -430,15 +377,14 @@ nav a:hover{
 .party-card{
     min-height:280px;
 
-    padding:35px 25px;
-
     display:flex;
     flex-direction:column;
-
     justify-content:center;
     align-items:center;
 
     text-align:center;
+
+    padding:35px 25px;
 
     background:
         linear-gradient(
@@ -462,11 +408,11 @@ nav a:hover{
     border-color:var(--pink);
 
     box-shadow:
-        0 0 30px rgba(255,59,157,.3);
+        0 0 30px rgba(255,59,157,.30);
 }
 
 .party-icon{
-    font-size:55px;
+    font-size:54px;
 
     margin-bottom:15px;
 }
@@ -484,9 +430,13 @@ nav a:hover{
 }
 
 
-/* =========================================
+/* ==============================
    CATERING
-========================================= */
+============================== */
+
+.catering-section{
+    background:#0b0b10;
+}
 
 .catering-info{
     display:grid;
@@ -499,21 +449,29 @@ nav a:hover{
 .info-card{
     background:#111119;
 
-    padding:30px;
-
-    border-radius:20px;
-
     border:1px solid #333;
 
+    border-radius:22px;
+
+    padding:30px;
+
     text-align:center;
+
+    transition:.25s;
+}
+
+.info-card:hover{
+    border-color:var(--blue);
+
+    transform:translateY(-4px);
 }
 
 .info-card h3{
     color:var(--blue);
 
-    margin-bottom:12px;
-
     font-size:22px;
+
+    margin-bottom:12px;
 }
 
 .info-card p{
@@ -521,9 +479,9 @@ nav a:hover{
 }
 
 
-/* =========================================
+/* ==============================
    WYDARZENIA SPECJALNE
-========================================= */
+============================== */
 
 .special-grid{
     display:grid;
@@ -534,31 +492,32 @@ nav a:hover{
 }
 
 .special-card{
-    border-radius:22px;
-
-    overflow:hidden;
+    background:#111;
 
     border:1px solid #333;
+
+    border-radius:24px;
+
+    overflow:hidden;
 
     cursor:pointer;
 
     transition:.3s;
-
-    background:#111;
 }
 
 .special-card:hover{
-    transform:translateY(-5px);
+    transform:translateY(-6px);
 
     border-color:var(--gold);
 
     box-shadow:
-        0 0 30px rgba(255,189,53,.25);
+        0 0 30px rgba(255,189,53,.22);
 }
 
 .special-card img{
     width:100%;
-    height:450px;
+
+    height:500px;
 
     object-fit:cover;
 
@@ -566,24 +525,24 @@ nav a:hover{
 }
 
 .special-name{
-    padding:18px;
-
     text-align:center;
 
-    font-size:20px;
-
-    font-weight:bold;
+    padding:18px;
 
     color:var(--gold);
+
+    font-size:21px;
+
+    font-weight:900;
 }
 
 
-/* =========================================
+/* ==============================
    WYBÓR CATERINGU
-========================================= */
+============================== */
 
 .catering-graphics{
-    max-width:1000px;
+    max-width:1050px;
 
     margin:auto;
 
@@ -627,16 +586,20 @@ nav a:hover{
 }
 
 
-/* =========================================
+/* ==============================
    KONTAKT
-========================================= */
+============================== */
+
+.contact{
+    background:#09090e;
+}
 
 .contact-box{
     max-width:900px;
 
     margin:auto;
 
-    padding:50px;
+    padding:45px;
 
     text-align:center;
 
@@ -658,9 +621,9 @@ nav a:hover{
 .contact-box h3{
     color:var(--pink);
 
-    font-size:35px;
+    font-size:34px;
 
-    margin-bottom:20px;
+    margin-bottom:18px;
 }
 
 .contact-row{
@@ -676,13 +639,13 @@ nav a:hover{
 }
 
 .contact-item{
-    padding:18px 25px;
+    padding:18px 24px;
 
     background:#09090e;
 
-    border-radius:15px;
-
     border:1px solid #333;
+
+    border-radius:15px;
 }
 
 .contact-item strong{
@@ -690,9 +653,9 @@ nav a:hover{
 }
 
 
-/* =========================================
-   MODAL GRAFIK
-========================================= */
+/* ==============================
+   MODAL
+============================== */
 
 .image-modal{
     display:none;
@@ -701,27 +664,25 @@ nav a:hover{
 
     inset:0;
 
-    z-index:5000;
+    z-index:30000;
 
-    background:rgba(0,0,0,.94);
+    background:rgba(0,0,0,.96);
 
-    padding:30px;
+    padding:55px 20px;
 
-    overflow:auto;
-
-    align-items:flex-start;
-
-    justify-content:center;
+    overflow-y:auto;
 }
 
 .image-modal.active{
     display:flex;
+
+    justify-content:center;
+
+    align-items:flex-start;
 }
 
 .modal-content{
-    position:relative;
-
-    width:min(1000px,96%);
+    width:min(900px,96%);
 
     margin:auto;
 }
@@ -731,17 +692,19 @@ nav a:hover{
 
     height:auto;
 
-    border-radius:15px;
+    border-radius:16px;
 
     box-shadow:
-        0 0 50px rgba(255,59,157,.35);
+        0 0 40px rgba(255,59,157,.35);
 }
 
 .close-modal{
     position:fixed;
 
-    top:20px;
+    top:15px;
     right:25px;
+
+    z-index:30001;
 
     width:50px;
     height:50px;
@@ -752,31 +715,28 @@ nav a:hover{
 
     background:#000;
 
-    color:#fff;
+    color:white;
 
-    font-size:30px;
+    font-size:31px;
 
     cursor:pointer;
-
-    z-index:5100;
-
-    box-shadow:
-        0 0 20px var(--pink);
 }
 
 
-/* =========================================
-   FOOTER
-========================================= */
+/* ==============================
+   STOPKA
+============================== */
 
 footer{
-    padding:35px 20px;
+    padding:30px 20px;
 
     text-align:center;
 
-    border-top:1px solid #222;
-
     color:#888;
+
+    background:#030305;
+
+    border-top:1px solid #222;
 }
 
 footer strong{
@@ -784,32 +744,11 @@ footer strong{
 }
 
 
-/* =========================================
-   RESPONSYWNOŚĆ
-========================================= */
+/* ==============================
+   TELEFON
+============================== */
 
-@media(max-width:950px){
-
-    .about-grid{
-        grid-template-columns:1fr;
-    }
-
-    .party-grid{
-        grid-template-columns:1fr;
-    }
-
-    .catering-info{
-        grid-template-columns:1fr;
-    }
-
-    .special-grid{
-        grid-template-columns:1fr;
-    }
-
-}
-
-
-@media(max-width:850px){
+@media(max-width:900px){
 
     .menu-button{
         display:block;
@@ -820,72 +759,68 @@ footer strong{
 
         position:absolute;
 
-        top:85px;
+        top:84px;
         left:0;
 
         width:100%;
 
-        flex-direction:column;
-
-        padding:25px;
-
         background:#08080d;
 
-        border-bottom:1px solid var(--pink);
+        flex-direction:column;
+        align-items:stretch;
+
+        padding:20px;
     }
 
     nav.active{
         display:flex;
     }
 
-    .logo-text{
-        font-size:18px;
+    nav a{
+        padding:13px 5px;
+
+        border-bottom:1px solid #222;
     }
 
-    .hero-logo{
-        width:210px;
-        height:210px;
-    }
-
-    .hero{
-        min-height:850px;
+    .about-grid,
+    .party-grid,
+    .catering-info,
+    .special-grid{
+        grid-template-columns:1fr;
     }
 
     .about-points{
         grid-template-columns:1fr;
     }
 
-    .contact-box{
-        padding:30px 18px;
+    .special-card img{
+        height:auto;
     }
 
 }
 
 
-/* =========================================
-   TELEFON
-========================================= */
-
-@media(max-width:550px){
+@media(max-width:600px){
 
     .section{
-        padding:75px 0;
+        padding:70px 0;
     }
 
-    .hero h1{
-        letter-spacing:2px;
+    .logo-text{
+        display:none;
     }
 
-    .hero h2{
-        letter-spacing:2px;
+    .hero-logo{
+        width:150px;
+        height:150px;
     }
 
     .hero p{
         font-size:17px;
     }
 
-    .special-card img{
-        height:auto;
+    .contact-box{
+        padding:30px 18px;
     }
 
 }
@@ -898,9 +833,9 @@ footer strong{
 <body>
 
 
-<!-- =========================================
+<!-- ==============================
      MENU
-========================================= -->
+============================== -->
 
 <header>
 
@@ -908,10 +843,13 @@ footer strong{
 
     <a href="#start" class="logo-area">
 
-        <img src="logo.png" alt="Logo Restauracja ZUZU">
+        <img
+            src="logo.jpg"
+            alt="Logo Restauracja ZUZU"
+        >
 
         <div class="logo-text">
-            ZUZU
+            RESTAURACJA <span>ZUZU</span>
         </div>
 
     </a>
@@ -920,7 +858,6 @@ footer strong{
     <button
         class="menu-button"
         id="menuButton"
-        aria-label="Otwórz menu"
     >
         ☰
     </button>
@@ -947,38 +884,48 @@ footer strong{
 </header>
 
 
-<!-- =========================================
+<!-- ==============================
      START
-========================================= -->
+============================== -->
 
-<section class="hero" id="start">
+<section
+    class="hero"
+    id="start"
+>
 
-<div class="container hero-content">
+<div class="hero-content">
 
     <img
-        src="logo.png"
+        src="logo.jpg"
         alt="Restauracja ZUZU"
         class="hero-logo"
     >
 
-    <h1>ZUZU</h1>
+    <h1>
+        RESTAURACJA <span>ZUZU</span>
+    </h1>
 
-    <h2>Restauracja</h2>
 
     <p>
         Magia dobrego smaku. Magia najlepszej zabawy.
-        Organizujemy wyjątkowe imprezy, rodzinne spotkania
-        i przygotowujemy catering na każdą okazję.
+        Catering, wynajem sali i wyjątkowe imprezy
+        w Szczecinie.
     </p>
 
 
     <div class="hero-buttons">
 
-        <a href="#imprezy" class="button button-pink">
-            Zobacz ofertę imprez
+        <a
+            href="#imprezy"
+            class="button button-pink"
+        >
+            Zobacz ofertę
         </a>
 
-        <a href="tel:798150723" class="button button-blue">
+        <a
+            href="tel:798150723"
+            class="button button-blue"
+        >
             Zadzwoń 798 150 723
         </a>
 
@@ -989,11 +936,14 @@ footer strong{
 </section>
 
 
-<!-- =========================================
+<!-- ==============================
      O NAS
-========================================= -->
+============================== -->
 
-<section class="section" id="onas">
+<section
+    class="section about"
+    id="onas"
+>
 
 <div class="container">
 
@@ -1004,8 +954,9 @@ footer strong{
         <h2>O nas</h2>
 
         <p>
-            Restauracja ZUZU to miejsce stworzone do wspólnego
-            świętowania, dobrego jedzenia i najlepszej zabawy.
+            ZUZU to miejsce stworzone do wspólnego
+            świętowania, dobrego jedzenia
+            i najlepszej zabawy.
         </p>
 
     </div>
@@ -1013,64 +964,71 @@ footer strong{
 
     <div class="about-grid">
 
+
+        <div class="floor-plan">
+
+            <img
+                src="widoksali.jpg"
+                alt="Widok sali Restauracji ZUZU"
+                onclick="openImageModal('widoksali.jpg')"
+            >
+
+        </div>
+
+
         <div class="about-text">
 
-            <h3>Cały lokal tylko dla Was!</h3>
+            <h3>
+                Twoja impreza. Twoi goście.
+                Całe ZUZU dla Was.
+            </h3>
+
 
             <p>
-                Organizujemy przyjęcia rodzinne, urodziny,
-                chrzciny, roczki, komunie, imprezy firmowe,
-                spotkania okolicznościowe oraz imprezy nocne.
+                Organizujemy imprezy rodzinne,
+                urodziny, chrzciny, roczki,
+                spotkania firmowe oraz wydarzenia nocne.
             </p>
 
+
             <p>
-                Lokal posiada dwie przestrzenie, dzięki czemu
-                możemy połączyć wspólne biesiadowanie z zabawą,
-                tańcem lub przestrzenią dla dzieci.
+                Nasz lokal posiada osobne przestrzenie,
+                dzięki którym można połączyć wspólne
+                biesiadowanie z zabawą, tańcem
+                lub miejscem dla najmłodszych.
             </p>
 
 
             <div class="about-points">
 
                 <div class="about-point">
-                    👑 <strong>Sala na wyłączność</strong>
+                    👑 Sala na wyłączność
                 </div>
 
                 <div class="about-point">
-                    👥 <strong>Do 25 osób siedzących</strong>
+                    👥 Do 25 osób siedzących
                 </div>
 
                 <div class="about-point">
-                    💃 <strong>Osobna sala taneczna</strong>
+                    💃 Sala taneczna
                 </div>
 
                 <div class="about-point">
-                    🧸 <strong>Strefa dla dzieci</strong>
+                    🧸 Strefa dla dzieci
                 </div>
 
                 <div class="about-point">
-                    🔊 <strong>Nagłośnienie</strong>
+                    🔊 Nagłośnienie
                 </div>
 
                 <div class="about-point">
-                    🍴 <strong>Zaplecze kuchenne</strong>
+                    🍴 Kuchnia
                 </div>
 
             </div>
 
         </div>
 
-
-        <div class="floor-plan">
-
-            <img
-                src="rzutsali.png"
-                alt="Rzut sali Restauracji ZUZU"
-                onclick="openImageModal('rzutsali.png')"
-                style="cursor:pointer;"
-            >
-
-        </div>
 
     </div>
 
@@ -1079,22 +1037,26 @@ footer strong{
 </section>
 
 
-<!-- =========================================
+<!-- ==============================
      IMPREZY
-========================================= -->
+============================== -->
 
-<section class="section" id="imprezy">
+<section
+    class="section"
+    id="imprezy"
+>
 
 <div class="container">
 
     <div class="section-title">
 
-        <span>Świętuj po swojemu</span>
+        <span>Świętuj z nami</span>
 
         <h2>Imprezy</h2>
 
         <p>
-            Wybierz rodzaj imprezy i zobacz przygotowaną ofertę.
+            Wybierz rodzaj imprezy
+            i zobacz naszą ofertę.
         </p>
 
     </div>
@@ -1107,18 +1069,21 @@ footer strong{
 
         <div
             class="party-card"
-            onclick="openImageModal('imprezyrodzinne.png')"
+            onclick="openImageModal('imprezyrodzinne.jpg')"
         >
 
             <div class="party-icon">
                 🎂
             </div>
 
-            <h3>Imprezy rodzinne</h3>
+            <h3>
+                Imprezy rodzinne
+            </h3>
 
             <p>
-                Urodziny, roczki, chrzciny, rodzinne spotkania
-                i inne wyjątkowe okazje.
+                Urodziny, chrzciny, roczki,
+                baby shower, rocznice
+                i inne rodzinne okazje.
             </p>
 
         </div>
@@ -1128,18 +1093,22 @@ footer strong{
 
         <div
             class="party-card"
-            onclick="openImageModal('imprezynocne.png')"
+            onclick="openImageModal('Ofertaimprezowanowa.png')"
         >
 
             <div class="party-icon">
                 🪩
             </div>
 
-            <h3>Imprezy nocne</h3>
+            <h3>
+                Imprezy nocne
+            </h3>
 
             <p>
-                Lokal na wyłączność, muzyka, parkiet
-                i pełna swoboda organizacji imprezy.
+                Urodziny dorosłych,
+                wieczory panieńskie,
+                imprezy ze znajomymi
+                i nocna zabawa w ZUZU.
             </p>
 
         </div>
@@ -1156,11 +1125,14 @@ footer strong{
                 ✨
             </div>
 
-            <h3>Wydarzenia specjalne</h3>
+            <h3>
+                Wydarzenia specjalne
+            </h3>
 
             <p>
-                Komunie, Wigilie, Sylwester
-                i specjalne wydarzenia organizowane w ZUZU.
+                Komunie, Wigilie,
+                Sylwester i sezonowe
+                wydarzenia ZUZU.
             </p>
 
         </a>
@@ -1173,24 +1145,26 @@ footer strong{
 </section>
 
 
-<!-- =========================================
+<!-- ==============================
      CATERING
-========================================= -->
+============================== -->
 
-<section class="section" id="catering">
+<section
+    class="section catering-section"
+    id="catering"
+>
 
 <div class="container">
 
     <div class="section-title">
 
-        <span>Smacznie i kolorowo</span>
+        <span>Smaki ZUZU</span>
 
-        <h2>Catering ZUZU</h2>
+        <h2>Catering</h2>
 
         <p>
-            Catering na imprezy rodzinne, urodziny,
-            chrzciny, komunie, spotkania firmowe
-            i każdą inną okazję.
+            Catering imprezowy na miejscu
+            oraz na wynos.
         </p>
 
     </div>
@@ -1200,11 +1174,14 @@ footer strong{
 
         <div class="info-card">
 
-            <h3>🥗 Zimne przekąski</h3>
+            <h3>
+                🥗 Zimne przekąski
+            </h3>
 
             <p>
-                Sałatki, przekąski, kanapeczki,
-                tortille, tartaletki, deski oraz boxy.
+                Sałatki, przekąski,
+                tortille, tartaletki,
+                deski i boxy.
             </p>
 
         </div>
@@ -1212,11 +1189,13 @@ footer strong{
 
         <div class="info-card">
 
-            <h3>🍲 Dania ciepłe</h3>
+            <h3>
+                🍲 Dania ciepłe
+            </h3>
 
             <p>
-                Zupy, dania ciepłe oraz klasyczne
-                zestawy obiadowe.
+                Zupy, dania ciepłe
+                oraz klasyczne zestawy obiadowe.
             </p>
 
         </div>
@@ -1224,11 +1203,14 @@ footer strong{
 
         <div class="info-card">
 
-            <h3>🎉 Na każdą okazję</h3>
+            <h3>
+                🎉 Na każdą okazję
+            </h3>
 
             <p>
-                Dopasujemy zestaw do charakteru imprezy
-                oraz liczby gości.
+                Urodziny, chrzciny,
+                komunie, imprezy firmowe
+                i rodzinne spotkania.
             </p>
 
         </div>
@@ -1236,13 +1218,18 @@ footer strong{
     </div>
 
 
-    <div style="text-align:center; margin-top:40px;">
+    <div
+        style="
+        text-align:center;
+        margin-top:40px;
+        "
+    >
 
         <a
             href="#wybor"
             class="button button-pink"
         >
-            Zobacz ofertę cateringu
+            Zobacz catering
         </a>
 
     </div>
@@ -1252,23 +1239,26 @@ footer strong{
 </section>
 
 
-<!-- =========================================
+<!-- ==============================
      WYDARZENIA SPECJALNE
-========================================= -->
+============================== -->
 
-<section class="section" id="wydarzenia">
+<section
+    class="section"
+    id="wydarzenia"
+>
 
 <div class="container">
 
     <div class="section-title">
 
-        <span>Oferty specjalne</span>
+        <span>Oferta sezonowa</span>
 
         <h2>Wydarzenia specjalne</h2>
 
         <p>
-            Zobacz nasze specjalne oferty przygotowane
-            na wyjątkowe okazje.
+            Kliknij wybraną grafikę,
+            aby zobaczyć pełną ofertę.
         </p>
 
     </div>
@@ -1277,16 +1267,35 @@ footer strong{
     <div class="special-grid">
 
 
+        <!-- KOMUNIA -->
+
+        <div
+            class="special-card"
+            onclick="openImageModal('komunia.jpg')"
+        >
+
+            <img
+                src="komunia.jpg"
+                alt="Komunia 2027"
+            >
+
+            <div class="special-name">
+                Komunia 2027
+            </div>
+
+        </div>
+
+
         <!-- WIGILIA FIRMOWA -->
 
         <div
             class="special-card"
-            onclick="openImageModal('wigiliafirmowa.png')"
+            onclick="openImageModal('wigilia firmowa.png')"
         >
 
             <img
-                src="wigiliafirmowa.png"
-                alt="Wigilia firmowa ZUZU"
+                src="wigilia firmowa.png"
+                alt="Wigilia firmowa"
             >
 
             <div class="special-name">
@@ -1300,12 +1309,12 @@ footer strong{
 
         <div
             class="special-card"
-            onclick="openImageModal('wigiliarodzinna.png')"
+            onclick="openImageModal('wigiliawzuzu.jpg')"
         >
 
             <img
-                src="wigiliarodzinna.png"
-                alt="Rodzinna Wigilia w ZUZU"
+                src="wigiliawzuzu.jpg"
+                alt="Wigilia rodzinna"
             >
 
             <div class="special-name">
@@ -1315,35 +1324,16 @@ footer strong{
         </div>
 
 
-        <!-- KOMUNIA -->
-
-        <div
-            class="special-card"
-            onclick="openImageModal('komunia.png')"
-        >
-
-            <img
-                src="komunia.png"
-                alt="Oferta komunijna ZUZU"
-            >
-
-            <div class="special-name">
-                Komunia 2027
-            </div>
-
-        </div>
-
-
         <!-- SYLWESTER -->
 
         <div
             class="special-card"
-            onclick="openImageModal('sylwester.png')"
+            onclick="openImageModal('sylwester.jpg')"
         >
 
             <img
-                src="sylwester.png"
-                alt="Sylwester w ZUZU"
+                src="sylwester.jpg"
+                alt="Sylwester 2026 2027"
             >
 
             <div class="special-name">
@@ -1360,11 +1350,14 @@ footer strong{
 </section>
 
 
-<!-- =========================================
+<!-- ==============================
      WYBÓR CATERINGU
-========================================= -->
+============================== -->
 
-<section class="section" id="wybor">
+<section
+    class="section catering-section"
+    id="wybor"
+>
 
 <div class="container">
 
@@ -1375,8 +1368,9 @@ footer strong{
         <h2>Wybór cateringu</h2>
 
         <p>
-            Zobacz cennik cateringu oraz pełną ofertę dostępnych
-            dań, przekąsek, desek i boxów.
+            Najpierw sprawdź cennik,
+            a następnie zobacz pełną listę
+            dań i przekąsek.
         </p>
 
     </div>
@@ -1385,27 +1379,27 @@ footer strong{
     <div class="catering-graphics">
 
 
-        <!-- CENNIK -->
+        <!-- CENNIK CATERINGU -->
 
         <div class="catering-graphic-card">
 
             <img
                 src="cennikcateringu.png"
-                alt="Cennik cateringu Restauracji ZUZU"
+                alt="Cennik cateringu ZUZU"
                 onclick="openImageModal('cennikcateringu.png')"
             >
 
         </div>
 
 
-        <!-- ROZPISKA -->
+        <!-- ROZPISKA WYBORU -->
 
         <div class="catering-graphic-card">
 
             <img
-                src="Rozpiskawyboru(1).png"
-                alt="Wybór cateringu Restauracji ZUZU"
-                onclick="openImageModal('Rozpiskawyboru(1).png')"
+                src="Rozpiskawyboru.png"
+                alt="Rozpiska wyboru cateringu ZUZU"
+                onclick="openImageModal('Rozpiskawyboru.png')"
             >
 
         </div>
@@ -1418,11 +1412,14 @@ footer strong{
 </section>
 
 
-<!-- =========================================
+<!-- ==============================
      KONTAKT
-========================================= -->
+============================== -->
 
-<section class="section" id="kontakt">
+<section
+    class="section contact"
+    id="kontakt"
+>
 
 <div class="container">
 
@@ -1433,7 +1430,8 @@ footer strong{
         <h2>Kontakt</h2>
 
         <p>
-            Masz pytania albo chcesz zarezerwować termin?
+            Chcesz zorganizować imprezę
+            albo zamówić catering?
             Skontaktuj się z nami.
         </p>
 
@@ -1442,19 +1440,19 @@ footer strong{
 
     <div class="contact-box">
 
-        <h3>Restauracja ZUZU</h3>
-
-        <p>
-            Zadzwoń i opowiedz nam, jaką imprezę planujesz.
-        </p>
+        <h3>
+            Restauracja ZUZU
+        </h3>
 
 
         <div class="contact-row">
 
+
             <div class="contact-item">
 
                 📞
-                <strong>Telefon</strong><br>
+                <strong>Telefon</strong>
+                <br>
 
                 <a href="tel:798150723">
                     798 150 723
@@ -1466,9 +1464,11 @@ footer strong{
             <div class="contact-item">
 
                 📍
-                <strong>Adres</strong><br>
+                <strong>Adres</strong>
+                <br>
 
-                Witkiewicza 58/U18<br>
+                Witkiewicza 58/U18
+                <br>
                 Szczecin
 
             </div>
@@ -1477,13 +1477,17 @@ footer strong{
             <div class="contact-item">
 
                 ✉️
-                <strong>E-mail</strong><br>
+                <strong>E-mail</strong>
+                <br>
 
-                <a href="mailto:zuzu.szczecin@gmail.com">
+                <a
+                    href="mailto:zuzu.szczecin@gmail.com"
+                >
                     zuzu.szczecin@gmail.com
                 </a>
 
             </div>
+
 
         </div>
 
@@ -1502,29 +1506,28 @@ footer strong{
 </section>
 
 
-<!-- =========================================
-     FOOTER
-========================================= -->
+<!-- ==============================
+     STOPKA
+============================== -->
 
 <footer>
 
-    <p>
-        © 2026 <strong>Restauracja ZUZU</strong>
-        • Witkiewicza 58/U18, Szczecin
-        • 798 150 723
-    </p>
+    © 2026
+    <strong>Restauracja ZUZU</strong>
+    • Witkiewicza 58/U18
+    • Szczecin
+    • 798 150 723
 
 </footer>
 
 
-<!-- =========================================
-     MODAL DO POWIĘKSZANIA GRAFIK
-========================================= -->
+<!-- ==============================
+     POWIĘKSZANIE GRAFIK
+============================== -->
 
 <div
     class="image-modal"
     id="imageModal"
-    onclick="closeImageModal(event)"
 >
 
     <button
@@ -1535,15 +1538,12 @@ footer strong{
     </button>
 
 
-    <div
-        class="modal-content"
-        onclick="event.stopPropagation()"
-    >
+    <div class="modal-content">
 
         <img
             src=""
             id="modalImage"
-            alt="Oferta Restauracji ZUZU"
+            alt="Oferta ZUZU"
         >
 
     </div>
@@ -1551,11 +1551,9 @@ footer strong{
 </div>
 
 
-<!-- =========================================
-     JAVASCRIPT
-========================================= -->
-
 <script>
+
+/* MENU TELEFON */
 
 const menuButton =
     document.getElementById("menuButton");
@@ -1564,23 +1562,33 @@ const menu =
     document.getElementById("menu");
 
 
-menuButton.addEventListener("click", function(){
+menuButton.addEventListener(
+    "click",
+    function(){
 
-    menu.classList.toggle("active");
+        menu.classList.toggle("active");
+
+    }
+);
+
+
+document
+.querySelectorAll("nav a")
+.forEach(link => {
+
+    link.addEventListener(
+        "click",
+        function(){
+
+            menu.classList.remove("active");
+
+        }
+    );
 
 });
 
 
-document.querySelectorAll("nav a").forEach(link => {
-
-    link.addEventListener("click", function(){
-
-        menu.classList.remove("active");
-
-    });
-
-});
-
+/* OTWIERANIE GRAFIKI */
 
 function openImageModal(image){
 
@@ -1594,45 +1602,61 @@ function openImageModal(image){
 
     modal.classList.add("active");
 
-    document.body.style.overflow = "hidden";
+    document.body.classList.add("modal-open");
 
 }
 
 
-function closeImageModal(event){
+/* ZAMYKANIE */
 
-    if(
-        event &&
-        event.target !==
-        document.getElementById("imageModal")
-    ){
-        return;
-    }
+function closeImageModal(){
 
     document
         .getElementById("imageModal")
         .classList
         .remove("active");
 
-    document.body.style.overflow = "";
+    document
+        .getElementById("modalImage")
+        .src = "";
+
+    document.body.classList.remove("modal-open");
 
 }
 
 
-document.addEventListener("keydown", function(event){
+/* KLIKNIĘCIE W TŁO */
 
-    if(event.key === "Escape"){
+document
+.getElementById("imageModal")
+.addEventListener(
+    "click",
+    function(event){
 
-        document
-            .getElementById("imageModal")
-            .classList
-            .remove("active");
+        if(event.target === this){
 
-        document.body.style.overflow = "";
+            closeImageModal();
+
+        }
 
     }
+);
 
-});
+
+/* ESC */
+
+document.addEventListener(
+    "keydown",
+    function(event){
+
+        if(event.key === "Escape"){
+
+            closeImageModal();
+
+        }
+
+    }
+);
 
 </script>
 
