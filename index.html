@@ -94,21 +94,16 @@ header{
     position:sticky;
     top:0;
     z-index:10000;
-
     background:rgba(5,5,9,.95);
-
     border-bottom:1px solid rgba(255,59,157,.35);
-
     backdrop-filter:blur(12px);
 }
 
 .navbar{
     min-height:84px;
-
     display:flex;
     justify-content:space-between;
     align-items:center;
-
     gap:25px;
 }
 
@@ -121,15 +116,10 @@ header{
 .logo-area img{
     width:62px;
     height:62px;
-
     border-radius:50%;
-
     object-fit:cover;
-
     border:2px solid var(--pink);
-
-    box-shadow:
-        0 0 15px rgba(255,59,157,.6);
+    box-shadow:0 0 15px rgba(255,59,157,.6);
 }
 
 .logo-text{
@@ -145,13 +135,14 @@ header{
 nav{
     display:flex;
     align-items:center;
-    gap:23px;
+    gap:19px;
 }
 
 nav a{
-    font-size:14px;
+    font-size:13px;
     font-weight:700;
     transition:.25s;
+    text-align:center;
 }
 
 nav a:hover{
@@ -160,14 +151,10 @@ nav a:hover{
 
 .menu-button{
     display:none;
-
     background:none;
     border:none;
-
     color:white;
-
     font-size:30px;
-
     cursor:pointer;
 }
 
@@ -178,13 +165,10 @@ nav a:hover{
 
 .hero{
     min-height:88vh;
-
     display:flex;
     align-items:center;
     justify-content:center;
-
     text-align:center;
-
     position:relative;
 
     background:
@@ -208,13 +192,9 @@ nav a:hover{
 .hero-logo{
     width:200px;
     height:200px;
-
     object-fit:cover;
-
     border-radius:50%;
-
     margin:0 auto 25px;
-
     border:4px solid var(--pink);
 
     box-shadow:
@@ -225,11 +205,8 @@ nav a:hover{
 .hero h1{
     font-size:clamp(50px,8vw,95px);
     line-height:.95;
-
     color:white;
-
-    text-shadow:
-        0 0 18px rgba(255,59,157,.4);
+    text-shadow:0 0 18px rgba(255,59,157,.4);
 }
 
 .hero h1 span{
@@ -238,11 +215,8 @@ nav a:hover{
 
 .hero p{
     max-width:760px;
-
     margin:22px auto 0;
-
     font-size:20px;
-
     color:#f1f1f1;
 }
 
@@ -250,37 +224,27 @@ nav a:hover{
     display:flex;
     justify-content:center;
     flex-wrap:wrap;
-
     gap:15px;
-
     margin-top:35px;
 }
 
 .button{
     display:inline-block;
-
     padding:15px 29px;
-
     border-radius:50px;
-
     font-weight:900;
-
     transition:.25s;
 }
 
 .button-pink{
     background:var(--pink);
     color:white;
-
-    box-shadow:
-        0 0 20px rgba(255,59,157,.35);
+    box-shadow:0 0 20px rgba(255,59,157,.35);
 }
 
 .button-blue{
     color:var(--blue);
-
     border:2px solid var(--blue);
-
     background:rgba(0,0,0,.35);
 }
 
@@ -299,25 +263,17 @@ nav a:hover{
 
 .about-grid{
     display:grid;
-
     grid-template-columns:1.1fr .9fr;
-
     gap:50px;
-
     align-items:center;
 }
 
 .floor-plan{
     background:#101017;
-
     padding:15px;
-
     border-radius:25px;
-
     border:1px solid var(--blue);
-
-    box-shadow:
-        0 0 30px rgba(56,217,255,.18);
+    box-shadow:0 0 30px rgba(56,217,255,.18);
 }
 
 .floor-plan img{
@@ -329,35 +285,26 @@ nav a:hover{
 .about-text h3{
     font-size:36px;
     line-height:1.15;
-
     color:var(--blue);
-
     margin-bottom:20px;
 }
 
 .about-text p{
     color:#ccc;
-
     margin-bottom:17px;
 }
 
 .about-points{
     display:grid;
-
     grid-template-columns:1fr 1fr;
-
     gap:12px;
-
     margin-top:25px;
 }
 
 .about-point{
     background:#12121a;
-
     border-left:4px solid var(--pink);
-
     padding:14px 15px;
-
     border-radius:9px;
 }
 
@@ -368,22 +315,17 @@ nav a:hover{
 
 .party-grid{
     display:grid;
-
     grid-template-columns:repeat(3,1fr);
-
     gap:25px;
 }
 
 .party-card{
     min-height:280px;
-
     display:flex;
     flex-direction:column;
     justify-content:center;
     align-items:center;
-
     text-align:center;
-
     padding:35px 25px;
 
     background:
@@ -394,34 +336,25 @@ nav a:hover{
         );
 
     border:1px solid #333;
-
     border-radius:25px;
-
     cursor:pointer;
-
     transition:.3s;
 }
 
 .party-card:hover{
     transform:translateY(-8px);
-
     border-color:var(--pink);
-
-    box-shadow:
-        0 0 30px rgba(255,59,157,.30);
+    box-shadow:0 0 30px rgba(255,59,157,.30);
 }
 
 .party-icon{
     font-size:54px;
-
     margin-bottom:15px;
 }
 
 .party-card h3{
     color:var(--pink);
-
     font-size:25px;
-
     margin-bottom:10px;
 }
 
@@ -440,37 +373,27 @@ nav a:hover{
 
 .catering-info{
     display:grid;
-
     grid-template-columns:repeat(3,1fr);
-
     gap:25px;
 }
 
 .info-card{
     background:#111119;
-
     border:1px solid #333;
-
     border-radius:22px;
-
     padding:30px;
-
     text-align:center;
-
     transition:.25s;
 }
 
 .info-card:hover{
     border-color:var(--blue);
-
     transform:translateY(-4px);
 }
 
 .info-card h3{
     color:var(--blue);
-
     font-size:22px;
-
     margin-bottom:12px;
 }
 
@@ -485,54 +408,37 @@ nav a:hover{
 
 .special-grid{
     display:grid;
-
     grid-template-columns:repeat(2,1fr);
-
     gap:25px;
 }
 
 .special-card{
     background:#111;
-
     border:1px solid #333;
-
     border-radius:24px;
-
     overflow:hidden;
-
     cursor:pointer;
-
     transition:.3s;
 }
 
 .special-card:hover{
     transform:translateY(-6px);
-
     border-color:var(--gold);
-
-    box-shadow:
-        0 0 30px rgba(255,189,53,.22);
+    box-shadow:0 0 30px rgba(255,189,53,.22);
 }
 
 .special-card img{
     width:100%;
-
     height:500px;
-
     object-fit:cover;
-
     object-position:top;
 }
 
 .special-name{
     text-align:center;
-
     padding:18px;
-
     color:var(--gold);
-
     font-size:21px;
-
     font-weight:900;
 }
 
@@ -543,46 +449,172 @@ nav a:hover{
 
 .catering-graphics{
     max-width:1050px;
-
     margin:auto;
-
     display:grid;
-
     gap:40px;
 }
 
 .catering-graphic-card{
     background:#151515;
-
     border:1px solid #333;
-
     border-radius:26px;
-
     padding:14px;
-
-    box-shadow:
-        0 0 25px rgba(255,59,157,.12);
-
+    box-shadow:0 0 25px rgba(255,59,157,.12);
     transition:.25s;
 }
 
 .catering-graphic-card:hover{
     transform:translateY(-4px);
-
     border-color:var(--pink);
-
-    box-shadow:
-        0 0 35px rgba(255,59,157,.25);
+    box-shadow:0 0 35px rgba(255,59,157,.25);
 }
 
 .catering-graphic-card img{
     width:100%;
-
     height:auto;
-
     border-radius:18px;
+    cursor:pointer;
+}
+
+
+/* ==============================
+   GALERIA
+============================== */
+
+.gallery-section{
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(255,59,157,.08),
+            transparent 50%
+        ),
+        #07070b;
+}
+
+.gallery-slider{
+    width:min(1050px,100%);
+    margin:auto;
+    position:relative;
+
+    background:#0d0d13;
+
+    border:1px solid rgba(255,59,157,.5);
+    border-radius:30px;
+
+    padding:15px;
+
+    box-shadow:
+        0 0 25px rgba(255,59,157,.15),
+        0 0 55px rgba(56,217,255,.08);
+}
+
+.gallery-photo{
+    position:relative;
+    width:100%;
+    height:650px;
+
+    overflow:hidden;
+
+    border-radius:20px;
+
+    background:#000;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.gallery-photo img{
+    width:100%;
+    height:100%;
+
+    object-fit:contain;
+
+    transition:
+        opacity .25s ease,
+        transform .25s ease;
 
     cursor:pointer;
+}
+
+.gallery-counter{
+    position:absolute;
+
+    bottom:17px;
+    left:50%;
+
+    transform:translateX(-50%);
+
+    padding:8px 18px;
+
+    border-radius:30px;
+
+    background:rgba(0,0,0,.78);
+
+    border:1px solid rgba(255,255,255,.25);
+
+    font-size:14px;
+    font-weight:900;
+
+    letter-spacing:2px;
+
+    backdrop-filter:blur(5px);
+}
+
+.gallery-arrow{
+    position:absolute;
+
+    top:50%;
+
+    transform:translateY(-50%);
+
+    z-index:20;
+
+    width:62px;
+    height:62px;
+
+    border-radius:50%;
+
+    border:2px solid var(--pink);
+
+    background:rgba(0,0,0,.80);
+
+    color:white;
+
+    font-size:32px;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+    box-shadow:
+        0 0 20px rgba(255,59,157,.45);
+}
+
+.gallery-arrow:hover{
+    background:var(--pink);
+
+    transform:
+        translateY(-50%)
+        scale(1.08);
+}
+
+.gallery-prev{
+    left:30px;
+}
+
+.gallery-next{
+    right:30px;
+}
+
+.gallery-help{
+    text-align:center;
+
+    color:#777;
+
+    font-size:13px;
+
+    margin-top:18px;
 }
 
 
@@ -596,11 +628,8 @@ nav a:hover{
 
 .contact-box{
     max-width:900px;
-
     margin:auto;
-
     padding:45px;
-
     text-align:center;
 
     background:
@@ -611,40 +640,28 @@ nav a:hover{
         );
 
     border-radius:30px;
-
     border:1px solid var(--pink);
-
-    box-shadow:
-        0 0 35px rgba(255,59,157,.18);
+    box-shadow:0 0 35px rgba(255,59,157,.18);
 }
 
 .contact-box h3{
     color:var(--pink);
-
     font-size:34px;
-
     margin-bottom:18px;
 }
 
 .contact-row{
     display:flex;
-
     justify-content:center;
-
     flex-wrap:wrap;
-
     gap:20px;
-
     margin:30px 0;
 }
 
 .contact-item{
     padding:18px 24px;
-
     background:#09090e;
-
     border:1px solid #333;
-
     border-radius:15px;
 }
 
@@ -661,7 +678,6 @@ nav a:hover{
     display:none;
 
     position:fixed;
-
     inset:0;
 
     z-index:30000;
@@ -675,22 +691,22 @@ nav a:hover{
 
 .image-modal.active{
     display:flex;
-
     justify-content:center;
-
     align-items:flex-start;
 }
 
 .modal-content{
-    width:min(900px,96%);
-
+    width:min(1000px,96%);
     margin:auto;
 }
 
 .modal-content img{
     width:100%;
-
     height:auto;
+
+    max-height:88vh;
+
+    object-fit:contain;
 
     border-radius:16px;
 
@@ -729,13 +745,9 @@ nav a:hover{
 
 footer{
     padding:30px 20px;
-
     text-align:center;
-
     color:#888;
-
     background:#030305;
-
     border-top:1px solid #222;
 }
 
@@ -745,7 +757,7 @@ footer strong{
 
 
 /* ==============================
-   TELEFON
+   TABLET
 ============================== */
 
 @media(max-width:900px){
@@ -778,7 +790,6 @@ footer strong{
 
     nav a{
         padding:13px 5px;
-
         border-bottom:1px solid #222;
     }
 
@@ -797,8 +808,16 @@ footer strong{
         height:auto;
     }
 
+    .gallery-photo{
+        height:550px;
+    }
+
 }
 
+
+/* ==============================
+   TELEFON
+============================== */
 
 @media(max-width:600px){
 
@@ -821,6 +840,30 @@ footer strong{
 
     .contact-box{
         padding:30px 18px;
+    }
+
+    .gallery-slider{
+        padding:7px;
+        border-radius:20px;
+    }
+
+    .gallery-photo{
+        height:500px;
+        border-radius:15px;
+    }
+
+    .gallery-arrow{
+        width:48px;
+        height:48px;
+        font-size:24px;
+    }
+
+    .gallery-prev{
+        left:14px;
+    }
+
+    .gallery-next{
+        right:14px;
     }
 
 }
@@ -858,6 +901,7 @@ footer strong{
     <button
         class="menu-button"
         id="menuButton"
+        aria-label="Otwórz menu"
     >
         ☰
     </button>
@@ -871,11 +915,21 @@ footer strong{
 
         <a href="#catering">Catering</a>
 
-        <a href="#wydarzenia">Wydarzenia specjalne</a>
+        <a href="#wydarzenia">
+            Wydarzenia specjalne
+        </a>
 
-        <a href="#wybor">Wybór cateringu</a>
+        <a href="#wybor">
+            Wybór cateringu
+        </a>
 
-        <a href="#kontakt">Kontakt</a>
+        <a href="#galeria">
+            Galeria
+        </a>
+
+        <a href="#kontakt">
+            Kontakt
+        </a>
 
     </nav>
 
@@ -888,10 +942,7 @@ footer strong{
      START
 ============================== -->
 
-<section
-    class="hero"
-    id="start"
->
+<section class="hero" id="start">
 
 <div class="hero-content">
 
@@ -940,10 +991,7 @@ footer strong{
      O NAS
 ============================== -->
 
-<section
-    class="section about"
-    id="onas"
->
+<section class="section about" id="onas">
 
 <div class="container">
 
@@ -1041,10 +1089,7 @@ footer strong{
      IMPREZY
 ============================== -->
 
-<section
-    class="section"
-    id="imprezy"
->
+<section class="section" id="imprezy">
 
 <div class="container">
 
@@ -1064,8 +1109,6 @@ footer strong{
 
     <div class="party-grid">
 
-
-        <!-- IMPREZY RODZINNE -->
 
         <div
             class="party-card"
@@ -1089,8 +1132,6 @@ footer strong{
         </div>
 
 
-        <!-- IMPREZY NOCNE -->
-
         <div
             class="party-card"
             onclick="openImageModal('Ofertaimprezowanowa.png')"
@@ -1113,8 +1154,6 @@ footer strong{
 
         </div>
 
-
-        <!-- WYDARZENIA SPECJALNE -->
 
         <a
             href="#wydarzenia"
@@ -1218,12 +1257,7 @@ footer strong{
     </div>
 
 
-    <div
-        style="
-        text-align:center;
-        margin-top:40px;
-        "
-    >
+    <div style="text-align:center; margin-top:40px;">
 
         <a
             href="#wybor"
@@ -1243,10 +1277,7 @@ footer strong{
      WYDARZENIA SPECJALNE
 ============================== -->
 
-<section
-    class="section"
-    id="wydarzenia"
->
+<section class="section" id="wydarzenia">
 
 <div class="container">
 
@@ -1267,8 +1298,6 @@ footer strong{
     <div class="special-grid">
 
 
-        <!-- KOMUNIA -->
-
         <div
             class="special-card"
             onclick="openImageModal('komunia.jpg')"
@@ -1285,8 +1314,6 @@ footer strong{
 
         </div>
 
-
-        <!-- WIGILIA FIRMOWA -->
 
         <div
             class="special-card"
@@ -1305,8 +1332,6 @@ footer strong{
         </div>
 
 
-        <!-- WIGILIA RODZINNA -->
-
         <div
             class="special-card"
             onclick="openImageModal('wigiliawzuzu.jpg')"
@@ -1323,8 +1348,6 @@ footer strong{
 
         </div>
 
-
-        <!-- SYLWESTER -->
 
         <div
             class="special-card"
@@ -1379,8 +1402,6 @@ footer strong{
     <div class="catering-graphics">
 
 
-        <!-- CENNIK CATERINGU -->
-
         <div class="catering-graphic-card">
 
             <img
@@ -1391,8 +1412,6 @@ footer strong{
 
         </div>
 
-
-        <!-- ROZPISKA WYBORU -->
 
         <div class="catering-graphic-card">
 
@@ -1405,6 +1424,95 @@ footer strong{
         </div>
 
 
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- ==============================
+     GALERIA
+============================== -->
+
+<section
+    class="section gallery-section"
+    id="galeria"
+>
+
+<div class="container">
+
+    <div class="section-title">
+
+        <span>Zajrzyj do ZUZU</span>
+
+        <h2>Galeria</h2>
+
+        <p>
+            Nasze imprezy, dekoracje, catering
+            i wyjątkowe chwile w Restauracji ZUZU.
+        </p>
+
+    </div>
+
+
+    <div class="gallery-slider">
+
+
+        <!-- LEWA STRZAŁKA -->
+
+        <button
+            class="gallery-arrow gallery-prev"
+            onclick="changeGallery(-1)"
+            aria-label="Poprzednie zdjęcie"
+        >
+            ❮
+        </button>
+
+
+        <!-- ZDJĘCIE -->
+
+        <div
+            class="gallery-photo"
+            id="galleryTouchArea"
+        >
+
+            <img
+                src="1.jpg"
+                id="galleryImage"
+                alt="Galeria Restauracji ZUZU"
+                onclick="openImageModal(this.src)"
+            >
+
+
+            <div
+                class="gallery-counter"
+                id="galleryCounter"
+            >
+                1 / 11
+            </div>
+
+        </div>
+
+
+        <!-- PRAWA STRZAŁKA -->
+
+        <button
+            class="gallery-arrow gallery-next"
+            onclick="changeGallery(1)"
+            aria-label="Następne zdjęcie"
+        >
+            ❯
+        </button>
+
+
+    </div>
+
+
+    <div class="gallery-help">
+        ← Przeglądaj zdjęcia strzałkami →
+        &nbsp; • &nbsp;
+        Na telefonie możesz przesuwać palcem
     </div>
 
 </div>
@@ -1480,9 +1588,7 @@ footer strong{
                 <strong>E-mail</strong>
                 <br>
 
-                <a
-                    href="mailto:zuzu.szczecin@gmail.com"
-                >
+                <a href="mailto:zuzu.szczecin@gmail.com">
                     zuzu.szczecin@gmail.com
                 </a>
 
@@ -1533,6 +1639,7 @@ footer strong{
     <button
         class="close-modal"
         onclick="closeImageModal()"
+        aria-label="Zamknij"
     >
         ×
     </button>
@@ -1543,7 +1650,7 @@ footer strong{
         <img
             src=""
             id="modalImage"
-            alt="Oferta ZUZU"
+            alt="Restauracja ZUZU"
         >
 
     </div>
@@ -1553,7 +1660,9 @@ footer strong{
 
 <script>
 
-/* MENU TELEFON */
+/* ==============================
+   MENU
+============================== */
 
 const menuButton =
     document.getElementById("menuButton");
@@ -1588,7 +1697,160 @@ document
 });
 
 
-/* OTWIERANIE GRAFIKI */
+/* ==============================
+   GALERIA
+============================== */
+
+const galleryImages = [
+
+    "1.jpg",
+    "2.jpg",
+    "3.jpg",
+    "4.jpg",
+    "5.jpg",
+    "6.jpg",
+    "7.jpg",
+    "8.jpg",
+    "9.jpg",
+    "10.jpg",
+    "11.jpg"
+
+];
+
+
+let galleryIndex = 0;
+
+
+function showGalleryImage(){
+
+    const image =
+        document.getElementById("galleryImage");
+
+    const counter =
+        document.getElementById("galleryCounter");
+
+
+    image.style.opacity = "0";
+
+    image.style.transform = "scale(.98)";
+
+
+    setTimeout(function(){
+
+        image.src =
+            galleryImages[galleryIndex];
+
+        counter.textContent =
+            (galleryIndex + 1)
+            + " / "
+            + galleryImages.length;
+
+
+        image.style.opacity = "1";
+
+        image.style.transform = "scale(1)";
+
+    },150);
+
+}
+
+
+function changeGallery(direction){
+
+    galleryIndex += direction;
+
+
+    if(
+        galleryIndex >=
+        galleryImages.length
+    ){
+
+        galleryIndex = 0;
+
+    }
+
+
+    if(galleryIndex < 0){
+
+        galleryIndex =
+            galleryImages.length - 1;
+
+    }
+
+
+    showGalleryImage();
+
+}
+
+
+/* ==============================
+   PRZESUWANIE PALCEM
+============================== */
+
+let touchStartX = 0;
+
+let touchEndX = 0;
+
+
+const galleryTouchArea =
+    document.getElementById("galleryTouchArea");
+
+
+galleryTouchArea.addEventListener(
+    "touchstart",
+    function(event){
+
+        touchStartX =
+            event.changedTouches[0].screenX;
+
+    },
+    {passive:true}
+);
+
+
+galleryTouchArea.addEventListener(
+    "touchend",
+    function(event){
+
+        touchEndX =
+            event.changedTouches[0].screenX;
+
+        handleGallerySwipe();
+
+    },
+    {passive:true}
+);
+
+
+function handleGallerySwipe(){
+
+    const distance =
+        touchEndX - touchStartX;
+
+
+    if(Math.abs(distance) < 50){
+
+        return;
+
+    }
+
+
+    if(distance < 0){
+
+        changeGallery(1);
+
+    }else{
+
+        changeGallery(-1);
+
+    }
+
+}
+
+
+/* ==============================
+   POWIĘKSZANIE GRAFIK
+============================== */
 
 function openImageModal(image){
 
@@ -1597,6 +1859,7 @@ function openImageModal(image){
 
     const modalImage =
         document.getElementById("modalImage");
+
 
     modalImage.src = image;
 
@@ -1607,8 +1870,6 @@ function openImageModal(image){
 }
 
 
-/* ZAMYKANIE */
-
 function closeImageModal(){
 
     document
@@ -1616,16 +1877,18 @@ function closeImageModal(){
         .classList
         .remove("active");
 
+
     document
         .getElementById("modalImage")
         .src = "";
+
 
     document.body.classList.remove("modal-open");
 
 }
 
 
-/* KLIKNIĘCIE W TŁO */
+/* KLIKNIĘCIE W CZARNE TŁO */
 
 document
 .getElementById("imageModal")
@@ -1643,15 +1906,43 @@ document
 );
 
 
-/* ESC */
+/* ==============================
+   KLAWIATURA
+============================== */
 
 document.addEventListener(
     "keydown",
     function(event){
 
+
+        const modalOpen =
+            document
+            .getElementById("imageModal")
+            .classList
+            .contains("active");
+
+
         if(event.key === "Escape"){
 
             closeImageModal();
+
+        }
+
+
+        if(!modalOpen){
+
+            if(event.key === "ArrowRight"){
+
+                changeGallery(1);
+
+            }
+
+
+            if(event.key === "ArrowLeft"){
+
+                changeGallery(-1);
+
+            }
 
         }
 
