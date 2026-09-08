@@ -1,958 +1,889 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Restauracja ZUZU | Catering i imprezy Szczecin</title>
-
-  <meta name="description" content="Restauracja ZUZU w Szczecinie. Wynajem sali, catering, imprezy rodzinne, nocne, komunie, Wigilie i Sylwester.">
-
-  <style>
-    :root {
-      --black: #080808;
-      --black2: #131313;
-      --black3: #1d1d1d;
-
-      --pink: #ff3b9d;
-      --pink-light: #ff92c8;
-
-      --blue: #37cfff;
-
-      --gold: #ffbb38;
-      --gold-light: #ffd77a;
-
-      --white: #ffffff;
-      --grey: #b8b8b8;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: var(--black);
-      color: white;
-      line-height: 1.6;
-    }
-
-    body.modal-open {
-      overflow: hidden;
-    }
-
-    img {
-      max-width: 100%;
-      display: block;
-    }
-
-    a {
-      text-decoration: none;
-    }
-
-    .container {
-      width: min(1180px, 92%);
-      margin: auto;
-    }
-
-    .section {
-      padding: 90px 0;
-    }
-
-    .section-title {
-      text-align: center;
-      margin-bottom: 45px;
-    }
-
-    .section-title span {
-      color: var(--pink);
-      font-size: 14px;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 3px;
-    }
-
-    .section-title h2 {
-      font-size: clamp(34px, 5vw, 54px);
-      line-height: 1.1;
-      margin-top: 7px;
-      color: white;
-    }
-
-    .section-title p {
-      color: #aaa;
-      max-width: 720px;
-      margin: 14px auto 0;
-    }
-
-    /* =========================
-       MENU
-    ========================= */
-
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 10000;
-      background: rgba(7,7,7,.95);
-      border-bottom: 1px solid rgba(255,59,157,.35);
-      backdrop-filter: blur(10px);
-    }
-
-    .navbar {
-      min-height: 84px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 25px;
-    }
-
-    .logo-wrap {
-      display: flex;
-      align-items: center;
-      gap: 13px;
-    }
-
-    .logo-wrap img {
-      width: 62px;
-      height: 62px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 2px solid var(--pink);
-      box-shadow: 0 0 20px rgba(255,59,157,.45);
-    }
-
-    .logo-text {
-      color: white;
-      font-size: 22px;
-      font-weight: 900;
-      letter-spacing: 2px;
-    }
-
-    .logo-text span {
-      color: var(--pink);
-    }
-
-    nav {
-      display: flex;
-      align-items: center;
-      gap: 23px;
-    }
-
-    nav a {
-      color: white;
-      font-size: 14px;
-      font-weight: 700;
-      transition: .2s;
-    }
-
-    nav a:hover {
-      color: var(--pink);
-    }
-
-    .menu-button {
-      display: none;
-      border: none;
-      background: transparent;
-      color: white;
-      font-size: 29px;
-      cursor: pointer;
-    }
-
-    /* =========================
-       HERO
-    ========================= */
-
-    .hero {
-      min-height: 86vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-
-      background:
-        linear-gradient(
-          rgba(0,0,0,.42),
-          rgba(0,0,0,.78)
-        ),
-        url("zdjeciewtle.jpg");
-
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(circle at 20% 20%, rgba(255,59,157,.18), transparent 35%),
-        radial-gradient(circle at 80% 60%, rgba(55,207,255,.13), transparent 30%);
-      pointer-events: none;
-    }
-
-    .hero-content {
-      width: min(900px, 92%);
-      position: relative;
-      z-index: 2;
-    }
-
-    .hero-logo {
-      width: 190px;
-      height: 190px;
-      object-fit: cover;
-      border-radius: 50%;
-      margin: 0 auto 28px;
-
-      border: 4px solid var(--pink);
-
-      box-shadow:
-        0 0 25px rgba(255,59,157,.75),
-        0 0 65px rgba(55,207,255,.18);
-    }
-
-    .hero h1 {
-      font-size: clamp(50px, 8vw, 94px);
-      line-height: .96;
-      margin-bottom: 18px;
-      text-shadow: 0 0 18px rgba(255,59,157,.3);
-    }
-
-    .hero h1 span {
-      color: var(--pink);
-    }
-
-    .hero p {
-      max-width: 760px;
-      margin: auto;
-      font-size: 20px;
-      color: #f1f1f1;
-    }
-
-    .hero-buttons {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 14px;
-      margin-top: 35px;
-    }
-
-    .button {
-      display: inline-block;
-      padding: 15px 29px;
-      border-radius: 50px;
-      font-weight: 900;
-      transition: .25s;
-    }
-
-    .button-pink {
-      background: var(--pink);
-      color: white;
-      box-shadow: 0 0 20px rgba(255,59,157,.32);
-    }
-
-    .button-pink:hover {
-      background: var(--pink-light);
-      color: #111;
-      transform: translateY(-2px);
-    }
-
-    .button-outline {
-      color: var(--blue);
-      border: 1px solid var(--blue);
-      background: rgba(0,0,0,.35);
-    }
-
-    .button-outline:hover {
-      color: #111;
-      background: var(--blue);
-    }
-
-    /* =========================
-       O NAS
-    ========================= */
-
-    .about {
-      background: #0d0d0d;
-    }
-
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 50px;
-      align-items: center;
-    }
-
-    .about-image {
-      background: #151515;
-      padding: 24px;
-      border-radius: 28px;
-      border: 1px solid #2d2d2d;
-    }
-
-    .about-image img {
-      border-radius: 22px;
-      width: 100%;
-    }
-
-    .about-text h3 {
-      font-size: 38px;
-      line-height: 1.15;
-      margin-bottom: 20px;
-    }
-
-    .about-text p {
-      color: #bdbdbd;
-      margin-bottom: 16px;
-    }
-
-    .check-list {
-      display: grid;
-      gap: 12px;
-      margin-top: 25px;
-    }
-
-    .check-list div {
-      background: #171717;
-      border-left: 4px solid var(--pink);
-      padding: 13px 16px;
-      border-radius: 8px;
-    }
-
-    /* =========================
-       IMPREZY
-    ========================= */
-
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-    }
-
-    .card {
-      background: #151515;
-      border: 1px solid #2d2d2d;
-      border-radius: 24px;
-      padding: 32px;
-      transition: .25s;
-    }
-
-    .clickable-card {
-      cursor: pointer;
-    }
-
-    .card:hover {
-      transform: translateY(-6px);
-      border-color: var(--pink);
-
-      box-shadow:
-        0 0 25px rgba(255,59,157,.13),
-        0 10px 35px rgba(0,0,0,.35);
-    }
-
-    .card-icon {
-      font-size: 34px;
-      margin-bottom: 18px;
-    }
-
-    .card h3 {
-      font-size: 25px;
-      margin-bottom: 10px;
-    }
-
-    .card p {
-      color: #aaa;
-    }
-
-    /* =========================
-       CATERING
-    ========================= */
-
-    .catering {
-      background: #0f0f0f;
-    }
-
-    .catering-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 22px;
-    }
-
-    .catering-box {
-      background: #171717;
-      border-radius: 22px;
-      padding: 28px;
-      border-top: 4px solid var(--pink);
-    }
-
-    .catering-box h3 {
-      font-size: 23px;
-      margin-bottom: 10px;
-    }
-
-    .catering-box p {
-      color: #aaa;
-    }
-
-    /* =========================
-       WYDARZENIA NA STRONIE
-    ========================= */
-
-    .special-wrapper {
-      display: grid;
-      gap: 25px;
-    }
-
-    .special-card {
-      min-height: 250px;
-      border-radius: 25px;
-      padding: 40px;
-
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-
-      background:
-        radial-gradient(circle at 80% 20%, rgba(255,59,157,.17), transparent 35%),
-        #151515;
-
-      border: 1px solid #303030;
-    }
-
-    .special-card h3 {
-      font-size: 34px;
-      margin-bottom: 10px;
-    }
-
-    .special-card p {
-      max-width: 650px;
-      color: #aaa;
-    }
-
-    .price {
-      margin-top: 14px;
-      color: var(--gold);
-      font-size: 22px;
-      font-weight: 900;
-    }
-
-    /* =========================
-       WYBÓR CATERINGU
-    ========================= */
-
-    .chooser {
-      max-width: 900px;
-      margin: auto;
-      overflow: hidden;
-
-      background: #151515;
-      border: 1px solid #303030;
-      border-radius: 26px;
-    }
-
-    .chooser-header {
-      background: linear-gradient(90deg, #111, #25121e);
-      text-align: center;
-      padding: 28px;
-      border-bottom: 1px solid rgba(255,59,157,.35);
-    }
-
-    .chooser-content {
-      padding: 30px;
-    }
-
-    .choose-group {
-      margin-bottom: 30px;
-    }
-
-    .choose-group h3 {
-      color: var(--pink);
-      margin-bottom: 14px;
-      border-bottom: 1px solid #333;
-      padding-bottom: 10px;
-    }
-
-    .choose-option {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      padding: 10px 0;
-      color: #ddd;
-    }
-
-    .choose-option input {
-      width: 20px;
-      height: 20px;
-      accent-color: var(--pink);
-    }
-
-    /* =========================
-       KONTAKT
-    ========================= */
-
-    .contact {
-      background:
-        radial-gradient(circle at 70% 20%, rgba(55,207,255,.12), transparent 35%),
-        #090909;
-    }
-
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 30px;
-    }
-
-    .contact-box {
-      background: #151515;
-      border: 1px solid #2f2f2f;
-      border-radius: 24px;
-      padding: 32px;
-    }
-
-    .contact-box h3 {
-      color: var(--pink);
-      font-size: 24px;
-      margin-bottom: 15px;
-    }
-
-    .contact-line {
-      margin-bottom: 12px;
-      color: #ddd;
-    }
-
-    .contact-line a {
-      color: white;
-    }
-
-    .contact-line a:hover {
-      color: var(--pink);
-    }
-
-    footer {
-      background: #050505;
-      color: #777;
-      text-align: center;
-      padding: 27px;
-      font-size: 13px;
-    }
-
-    /* =========================
-       MODAL POJEDYNCZEJ GRAFIKI
-    ========================= */
-
-    .image-modal {
-      display: none;
-      position: fixed;
-      inset: 0;
-      z-index: 30000;
-
-      background: rgba(0,0,0,.95);
-
-      padding: 50px 20px;
-      overflow-y: auto;
-    }
-
-    .image-modal.active {
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-    }
-
-    .image-modal-content {
-      width: min(800px, 96%);
-      margin: 25px auto;
-    }
-
-    .image-modal-content img {
-      width: 100%;
-      height: auto;
-      border-radius: 18px;
-
-      box-shadow:
-        0 0 35px rgba(255,59,157,.38),
-        0 0 75px rgba(55,207,255,.13);
-    }
-
-    .image-modal-close {
-      position: fixed;
-      top: 14px;
-      right: 28px;
-      z-index: 30001;
-
-      color: white;
-      font-size: 52px;
-      line-height: 1;
-      cursor: pointer;
-    }
-
-    .image-modal-close:hover {
-      color: var(--pink);
-    }
-
-    /* =========================
-       MODAL WYDARZEŃ SPECJALNYCH
-    ========================= */
-
-    .special-modal {
-      display: none;
-      position: fixed;
-      inset: 0;
-      z-index: 25000;
-
-      background: rgba(0,0,0,.97);
-
-      overflow-y: auto;
-      padding: 70px 20px 45px;
-    }
-
-    .special-modal.active {
-      display: block;
-    }
-
-    .special-modal-box {
-      width: min(1180px, 96%);
-      margin: auto;
-    }
-
-    .special-modal-box > h2 {
-      text-align: center;
-      color: white;
-      font-size: clamp(32px, 5vw, 55px);
-      line-height: 1.1;
-    }
-
-    .special-modal-subtitle {
-      text-align: center;
-      color: #aaa;
-      margin: 10px 0 35px;
-    }
-
-    .special-gallery {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 22px;
-      align-items: start;
-    }
-
-    .special-offer {
-      background: #151515;
-      border: 1px solid #333;
-      border-radius: 22px;
-
-      padding: 11px;
-      overflow: hidden;
-      cursor: pointer;
-
-      transition: .25s;
-    }
-
-    .special-offer:hover {
-      transform: translateY(-6px);
-      border-color: var(--pink);
-
-      box-shadow:
-        0 0 30px rgba(255,59,157,.24);
-    }
-
-    .special-offer img {
-      width: 100%;
-      height: 390px;
-      object-fit: cover;
-      object-position: top;
-      border-radius: 15px;
-    }
-
-    .special-offer h3 {
-      font-size: 20px;
-      padding: 15px 10px 3px;
-    }
-
-    .special-offer span {
-      display: block;
-      color: var(--pink);
-      font-weight: 800;
-      padding: 0 10px 14px;
-    }
-
-    .special-modal-close {
-      position: fixed;
-      top: 14px;
-      right: 28px;
-      z-index: 25001;
-
-      color: white;
-      font-size: 52px;
-      line-height: 1;
-      cursor: pointer;
-    }
-
-    .special-modal-close:hover {
-      color: var(--pink);
-    }
-
-    /* =========================
-       MOBILE
-    ========================= */
-
-    @media(max-width:1000px) {
-
-      .special-gallery {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-    }
-
-    @media(max-width:900px) {
-
-      .menu-button {
-        display: block;
-      }
-
-      nav {
-        display: none;
-
-        position: absolute;
-        top: 84px;
-        left: 0;
-
-        width: 100%;
-
-        background: #080808;
-
-        flex-direction: column;
-        align-items: stretch;
-
-        padding: 15px 20px;
-
-        border-top: 1px solid #292929;
-      }
-
-      nav.active {
-        display: flex;
-      }
-
-      nav a {
-        padding: 13px 5px;
-        border-bottom: 1px solid #252525;
-      }
-
-      .about-grid,
-      .cards,
-      .catering-grid,
-      .contact-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .hero {
-        min-height: 78vh;
-      }
-
-      .hero-logo {
-        width: 145px;
-        height: 145px;
-      }
-
-      .section {
-        padding: 65px 0;
-      }
-
-    }
-
-    @media(max-width:620px) {
-
-      .logo-text {
-        font-size: 17px;
-      }
-
-      .logo-wrap img {
-        width: 52px;
-        height: 52px;
-      }
-
-      .special-gallery {
-        grid-template-columns: 1fr;
-      }
-
-      .special-offer {
-        max-width: 500px;
-        width: 100%;
-        margin: auto;
-      }
-
-      .special-offer img {
-        height: auto;
-      }
-
-      .hero p {
-        font-size: 17px;
-      }
-
-    }
-
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Restauracja ZUZU | Catering i imprezy Szczecin</title>
+
+<style>
+
+:root {
+  --black:#080808;
+  --pink:#ff3b9d;
+  --blue:#37cfff;
+  --gold:#ffbb38;
+  --white:#ffffff;
+}
+
+* {
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+  scroll-behavior:smooth;
+}
+
+body {
+  font-family:Arial, Helvetica, sans-serif;
+  background:#080808;
+  color:white;
+  line-height:1.6;
+}
+
+body.modal-open {
+  overflow:hidden;
+}
+
+img {
+  max-width:100%;
+  display:block;
+}
+
+a {
+  text-decoration:none;
+}
+
+.container {
+  width:min(1180px,92%);
+  margin:auto;
+}
+
+.section {
+  padding:90px 0;
+}
+
+.section-title {
+  text-align:center;
+  margin-bottom:45px;
+}
+
+.section-title span {
+  color:var(--pink);
+  font-size:14px;
+  font-weight:800;
+  text-transform:uppercase;
+  letter-spacing:3px;
+}
+
+.section-title h2 {
+  font-size:clamp(34px,5vw,54px);
+  line-height:1.1;
+  margin-top:7px;
+}
+
+.section-title p {
+  color:#aaa;
+  max-width:720px;
+  margin:14px auto 0;
+}
+
+
+/* =====================================
+   MENU
+===================================== */
+
+header {
+  position:sticky;
+  top:0;
+  z-index:10000;
+  background:rgba(7,7,7,.96);
+  border-bottom:1px solid rgba(255,59,157,.35);
+  backdrop-filter:blur(10px);
+}
+
+.navbar {
+  min-height:84px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:25px;
+}
+
+.logo-wrap {
+  display:flex;
+  align-items:center;
+  gap:13px;
+}
+
+.logo-wrap img {
+  width:62px;
+  height:62px;
+  border-radius:50%;
+  object-fit:cover;
+  border:2px solid var(--pink);
+  box-shadow:0 0 20px rgba(255,59,157,.45);
+}
+
+.logo-text {
+  color:white;
+  font-size:22px;
+  font-weight:900;
+  letter-spacing:2px;
+}
+
+.logo-text span {
+  color:var(--pink);
+}
+
+nav {
+  display:flex;
+  align-items:center;
+  gap:23px;
+}
+
+nav a {
+  color:white;
+  font-size:14px;
+  font-weight:700;
+}
+
+nav a:hover {
+  color:var(--pink);
+}
+
+.menu-button {
+  display:none;
+  border:0;
+  background:transparent;
+  color:white;
+  font-size:30px;
+  cursor:pointer;
+}
+
+
+/* =====================================
+   START
+===================================== */
+
+.hero {
+  min-height:86vh;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  text-align:center;
+
+  background:
+    linear-gradient(
+      rgba(0,0,0,.35),
+      rgba(0,0,0,.78)
+    ),
+    url("zdjęciewtle.jpg");
+
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+
+  position:relative;
+}
+
+.hero-content {
+  width:min(900px,92%);
+}
+
+.hero-logo {
+  width:190px;
+  height:190px;
+  object-fit:cover;
+  border-radius:50%;
+
+  margin:0 auto 28px;
+
+  border:4px solid var(--pink);
+
+  box-shadow:
+    0 0 25px rgba(255,59,157,.75),
+    0 0 65px rgba(55,207,255,.18);
+}
+
+.hero h1 {
+  font-size:clamp(50px,8vw,94px);
+  line-height:.96;
+  margin-bottom:18px;
+}
+
+.hero h1 span {
+  color:var(--pink);
+}
+
+.hero p {
+  max-width:760px;
+  margin:auto;
+  font-size:20px;
+  color:#f1f1f1;
+}
+
+.hero-buttons {
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:14px;
+  margin-top:35px;
+}
+
+.button {
+  display:inline-block;
+  padding:15px 29px;
+  border-radius:50px;
+  font-weight:900;
+  transition:.25s;
+}
+
+.button-pink {
+  background:var(--pink);
+  color:white;
+}
+
+.button-pink:hover {
+  transform:translateY(-3px);
+  box-shadow:0 0 25px rgba(255,59,157,.5);
+}
+
+.button-outline {
+  color:var(--blue);
+  border:1px solid var(--blue);
+  background:rgba(0,0,0,.35);
+}
+
+.button-outline:hover {
+  background:var(--blue);
+  color:#111;
+}
+
+
+/* =====================================
+   O NAS
+===================================== */
+
+.about {
+  background:#0d0d0d;
+}
+
+.about-grid {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:50px;
+  align-items:center;
+}
+
+.about-image {
+  background:#151515;
+  padding:24px;
+  border-radius:28px;
+  border:1px solid #2d2d2d;
+}
+
+.about-image img {
+  width:100%;
+  border-radius:22px;
+}
+
+.about-text h3 {
+  font-size:38px;
+  line-height:1.15;
+  margin-bottom:20px;
+}
+
+.about-text p {
+  color:#bbb;
+  margin-bottom:16px;
+}
+
+.check-list {
+  display:grid;
+  gap:12px;
+  margin-top:25px;
+}
+
+.check-list div {
+  background:#171717;
+  border-left:4px solid var(--pink);
+  padding:13px 16px;
+  border-radius:8px;
+}
+
+
+/* =====================================
+   IMPREZY
+===================================== */
+
+.cards {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:24px;
+}
+
+.card {
+  background:#151515;
+  border:1px solid #2d2d2d;
+  border-radius:24px;
+  padding:32px;
+  transition:.25s;
+}
+
+.clickable-card {
+  cursor:pointer;
+}
+
+.card:hover {
+  transform:translateY(-7px);
+  border-color:var(--pink);
+  box-shadow:0 0 30px rgba(255,59,157,.18);
+}
+
+.card-icon {
+  font-size:36px;
+  margin-bottom:18px;
+}
+
+.card h3 {
+  font-size:25px;
+  margin-bottom:10px;
+}
+
+.card p {
+  color:#aaa;
+}
+
+
+/* =====================================
+   CATERING
+===================================== */
+
+.catering {
+  background:#0f0f0f;
+}
+
+.catering-grid {
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:22px;
+}
+
+.catering-box {
+  background:#171717;
+  border-radius:22px;
+  padding:28px;
+  border-top:4px solid var(--pink);
+}
+
+.catering-box h3 {
+  font-size:23px;
+  margin-bottom:10px;
+}
+
+.catering-box p {
+  color:#aaa;
+}
+
+
+/* =====================================
+   WYDARZENIA
+===================================== */
+
+.special-wrapper {
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:25px;
+}
+
+.special-card {
+  min-height:250px;
+  border-radius:25px;
+  padding:40px;
+
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+
+  background:
+    radial-gradient(
+      circle at 80% 20%,
+      rgba(255,59,157,.17),
+      transparent 35%
+    ),
+    #151515;
+
+  border:1px solid #303030;
+
+  cursor:pointer;
+  transition:.25s;
+}
+
+.special-card:hover {
+  transform:translateY(-5px);
+  border-color:var(--pink);
+}
+
+.special-card h3 {
+  font-size:34px;
+  margin-bottom:10px;
+}
+
+.special-card p {
+  color:#aaa;
+}
+
+.price {
+  margin-top:14px;
+  color:var(--gold);
+  font-size:22px;
+  font-weight:900;
+}
+
+
+/* =====================================
+   WYBÓR CATERINGU
+===================================== */
+
+.chooser {
+  max-width:900px;
+  margin:auto;
+
+  background:#151515;
+  border:1px solid #303030;
+  border-radius:26px;
+  overflow:hidden;
+}
+
+.chooser-header {
+  background:linear-gradient(90deg,#111,#25121e);
+  text-align:center;
+  padding:28px;
+}
+
+.chooser-content {
+  padding:30px;
+}
+
+.choose-group {
+  margin-bottom:30px;
+}
+
+.choose-group h3 {
+  color:var(--pink);
+  margin-bottom:14px;
+  border-bottom:1px solid #333;
+  padding-bottom:10px;
+}
+
+.choose-option {
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:10px 0;
+  color:#ddd;
+}
+
+.choose-option input {
+  width:20px;
+  height:20px;
+  accent-color:var(--pink);
+}
+
+
+/* =====================================
+   KONTAKT
+===================================== */
+
+.contact {
+  background:#090909;
+}
+
+.contact-grid {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:30px;
+}
+
+.contact-box {
+  background:#151515;
+  border:1px solid #2f2f2f;
+  border-radius:24px;
+  padding:32px;
+}
+
+.contact-box h3 {
+  color:var(--pink);
+  font-size:24px;
+  margin-bottom:15px;
+}
+
+.contact-line {
+  margin-bottom:12px;
+  color:#ddd;
+}
+
+.contact-line a {
+  color:white;
+}
+
+footer {
+  background:#050505;
+  color:#777;
+  text-align:center;
+  padding:27px;
+}
+
+
+/* =====================================
+   MODAL GRAFIKI
+===================================== */
+
+.image-modal {
+  display:none;
+  position:fixed;
+  inset:0;
+  z-index:30000;
+
+  background:rgba(0,0,0,.96);
+
+  padding:50px 20px;
+  overflow-y:auto;
+}
+
+.image-modal.active {
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+}
+
+.image-modal-content {
+  width:min(820px,96%);
+  margin:25px auto;
+}
+
+.image-modal-content img {
+  width:100%;
+  height:auto;
+  border-radius:18px;
+
+  box-shadow:
+    0 0 35px rgba(255,59,157,.38),
+    0 0 75px rgba(55,207,255,.13);
+}
+
+.image-modal-close {
+  position:fixed;
+  top:14px;
+  right:28px;
+
+  color:white;
+  font-size:52px;
+  cursor:pointer;
+  z-index:30001;
+}
+
+
+/* =====================================
+   GALERIA WYDARZEŃ SPECJALNYCH
+===================================== */
+
+.special-modal {
+  display:none;
+  position:fixed;
+  inset:0;
+
+  z-index:25000;
+
+  background:rgba(0,0,0,.97);
+
+  overflow-y:auto;
+  padding:70px 20px 45px;
+}
+
+.special-modal.active {
+  display:block;
+}
+
+.special-modal-box {
+  width:min(1180px,96%);
+  margin:auto;
+}
+
+.special-modal-box > h2 {
+  text-align:center;
+  font-size:clamp(32px,5vw,55px);
+}
+
+.special-modal-subtitle {
+  text-align:center;
+  color:#aaa;
+  margin:10px 0 35px;
+}
+
+.special-gallery {
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:22px;
+}
+
+.special-offer {
+  background:#151515;
+  border:1px solid #333;
+  border-radius:22px;
+  padding:11px;
+  cursor:pointer;
+  transition:.25s;
+}
+
+.special-offer:hover {
+  transform:translateY(-6px);
+  border-color:var(--pink);
+  box-shadow:0 0 30px rgba(255,59,157,.24);
+}
+
+.special-offer img {
+  width:100%;
+  height:390px;
+  object-fit:cover;
+  object-position:top;
+  border-radius:15px;
+}
+
+.special-offer h3 {
+  font-size:20px;
+  padding:15px 10px 3px;
+}
+
+.special-offer span {
+  display:block;
+  color:var(--pink);
+  font-weight:800;
+  padding:0 10px 14px;
+}
+
+.special-modal-close {
+  position:fixed;
+  top:14px;
+  right:28px;
+
+  color:white;
+  font-size:52px;
+  cursor:pointer;
+
+  z-index:25001;
+}
+
+
+/* =====================================
+   TELEFON
+===================================== */
+
+@media(max-width:1000px) {
+
+  .special-gallery {
+    grid-template-columns:repeat(2,1fr);
+  }
+
+}
+
+@media(max-width:900px) {
+
+  .menu-button {
+    display:block;
+  }
+
+  nav {
+    display:none;
+    position:absolute;
+    top:84px;
+    left:0;
+    width:100%;
+
+    background:#080808;
+
+    flex-direction:column;
+    align-items:stretch;
+
+    padding:15px 20px;
+  }
+
+  nav.active {
+    display:flex;
+  }
+
+  nav a {
+    padding:13px 5px;
+    border-bottom:1px solid #252525;
+  }
+
+  .about-grid,
+  .cards,
+  .catering-grid,
+  .contact-grid,
+  .special-wrapper {
+    grid-template-columns:1fr;
+  }
+
+}
+
+@media(max-width:620px) {
+
+  .special-gallery {
+    grid-template-columns:1fr;
+  }
+
+  .special-offer img {
+    height:auto;
+  }
+
+  .logo-text {
+    font-size:17px;
+  }
+
+  .logo-wrap img {
+    width:52px;
+    height:52px;
+  }
+
+}
+
+</style>
 </head>
-
 
 <body>
 
 
-<!-- =====================================================
-     MENU
-===================================================== -->
+<!-- ================= MENU ================= -->
 
 <header>
 
-  <div class="container navbar">
+<div class="container navbar">
 
-    <a href="#start" class="logo-wrap">
+  <a href="#start" class="logo-wrap">
 
-      <img src="logo.jpg" alt="Logo Restauracja ZUZU">
+    <img src="logo.jpg" alt="ZUZU">
 
-      <div class="logo-text">
-        RESTAURACJA <span>ZUZU</span>
-      </div>
+    <div class="logo-text">
+      RESTAURACJA <span>ZUZU</span>
+    </div>
 
-    </a>
+  </a>
 
+  <button class="menu-button" id="menuButton">
+    ☰
+  </button>
 
-    <button class="menu-button" id="menuButton">
-      ☰
-    </button>
+  <nav id="menu">
 
+    <a href="#onas">O nas</a>
 
-    <nav id="menu">
+    <a href="#imprezy">Imprezy</a>
 
-      <a href="#onas">O nas</a>
+    <a href="#catering">Catering</a>
 
-      <a href="#imprezy">Imprezy</a>
+    <a href="#wydarzenia">Wydarzenia specjalne</a>
 
-      <a href="#catering">Catering</a>
+    <a href="#wybor">Wybór cateringu</a>
 
-      <a href="#wydarzenia">Wydarzenia specjalne</a>
+    <a href="#kontakt">Kontakt</a>
 
-      <a href="#wybor">Wybór cateringu</a>
+  </nav>
 
-      <a href="#kontakt">Kontakt</a>
-
-    </nav>
-
-  </div>
+</div>
 
 </header>
 
 
-<!-- =====================================================
-     START
-===================================================== -->
+<!-- ================= START ================= -->
 
 <section class="hero" id="start">
 
-  <div class="hero-content">
+<div class="hero-content">
 
-    <img
-      src="logo.jpg"
-      class="hero-logo"
-      alt="Restauracja ZUZU"
-    >
+  <img
+    src="logo.jpg"
+    class="hero-logo"
+    alt="Restauracja ZUZU"
+  >
 
-    <h1>
-      RESTAURACJA <span>ZUZU</span>
-    </h1>
+  <h1>
+    RESTAURACJA <span>ZUZU</span>
+  </h1>
 
-    <p>
-      Magia dobrego smaku. Magia najlepszej zabawy.
-      Catering, wynajem sali i wyjątkowe imprezy w Szczecinie.
-    </p>
+  <p>
+    Magia dobrego smaku. Magia najlepszej zabawy.
+    Catering, wynajem sali i wyjątkowe imprezy w Szczecinie.
+  </p>
 
-    <div class="hero-buttons">
+  <div class="hero-buttons">
 
-      <a href="#imprezy" class="button button-pink">
-        Zobacz ofertę
-      </a>
+    <a href="#imprezy" class="button button-pink">
+      Zobacz ofertę
+    </a>
 
-      <a href="#kontakt" class="button button-outline">
-        Zarezerwuj termin
-      </a>
-
-    </div>
+    <a href="#kontakt" class="button button-outline">
+      Zarezerwuj termin
+    </a>
 
   </div>
+
+</div>
 
 </section>
 
 
-<!-- =====================================================
-     O NAS
-===================================================== -->
+<!-- ================= O NAS ================= -->
 
 <section class="section about" id="onas">
 
-  <div class="container">
+<div class="container">
 
-    <div class="section-title">
+  <div class="section-title">
 
-      <span>Poznaj ZUZU</span>
+    <span>Poznaj ZUZU</span>
 
-      <h2>O nas</h2>
+    <h2>O nas</h2>
 
-      <p>
-        Kameralne miejsce do wspólnego świętowania,
-        rodzinnych spotkań, imprez i wydarzeń specjalnych.
-      </p>
+    <p>
+      Kameralne miejsce do wspólnego świętowania,
+      rodzinnych spotkań, imprez i wydarzeń specjalnych.
+    </p>
+
+  </div>
+
+
+  <div class="about-grid">
+
+    <div class="about-image">
+
+      <img src="logo.jpg" alt="Restauracja ZUZU">
 
     </div>
 
 
-    <div class="about-grid">
+    <div class="about-text">
 
-      <div class="about-image">
+      <h3>
+        Twoja impreza. Twoi goście. Całe ZUZU dla Was.
+      </h3>
 
-        <img
-          src="logo.jpg"
-          alt="Restauracja ZUZU"
-        >
+      <p>
+        Restauracja ZUZU to miejsce, w którym możesz
+        zorganizować przyjęcie dokładnie tak, jak chcesz.
+      </p>
 
-      </div>
+      <p>
+        Oferujemy wynajem sali na wyłączność,
+        catering oraz specjalne pakiety
+        na najważniejsze okazje.
+      </p>
 
+      <div class="check-list">
 
-      <div class="about-text">
+        <div>✓ sala na wyłączność</div>
 
-        <h3>
-          Twoja impreza. Twoi goście. Całe ZUZU dla Was.
-        </h3>
+        <div>✓ catering ZUZU</div>
 
-        <p>
-          Restauracja ZUZU to miejsce, w którym możesz
-          zorganizować przyjęcie dokładnie tak, jak chcesz.
-        </p>
+        <div>✓ imprezy rodzinne i nocne</div>
 
-        <p>
-          Oferujemy wynajem sali na wyłączność,
-          catering oraz specjalne pakiety
-          na najważniejsze okazje.
-        </p>
+        <div>✓ wydarzenia specjalne</div>
 
-        <div class="check-list">
+        <div>✓ możliwość własnych napojów i alkoholu</div>
 
-          <div>✓ sala na wyłączność</div>
-
-          <div>✓ catering ZUZU</div>
-
-          <div>✓ imprezy rodzinne i nocne</div>
-
-          <div>✓ wydarzenia specjalne</div>
-
-          <div>✓ możliwość własnych napojów i alkoholu</div>
-
-          <div>✓ kącik dla dzieci</div>
-
-        </div>
+        <div>✓ kącik dla dzieci</div>
 
       </div>
 
@@ -960,692 +891,577 @@
 
   </div>
 
+</div>
+
 </section>
 
 
-<!-- =====================================================
-     IMPREZY
-===================================================== -->
+<!-- ================= IMPREZY ================= -->
 
 <section class="section" id="imprezy">
 
-  <div class="container">
+<div class="container">
 
-    <div class="section-title">
+  <div class="section-title">
 
-      <span>Świętuj z nami</span>
+    <span>Świętuj z nami</span>
 
-      <h2>Imprezy</h2>
+    <h2>Imprezy</h2>
+
+    <p>
+      Wybierz interesującą Cię kategorię
+      i zobacz naszą ofertę.
+    </p>
+
+  </div>
+
+
+  <div class="cards">
+
+
+    <!-- IMPREZY RODZINNE -->
+
+    <div
+      class="card clickable-card"
+      onclick="openImageModal('imprezyrodzinne.jpg')"
+    >
+
+      <div class="card-icon">🎂</div>
+
+      <h3>Imprezy rodzinne</h3>
 
       <p>
-        Wybierz interesującą Cię kategorię
-        i zobacz naszą ofertę.
+        Urodziny, roczki, chrzciny, rocznice,
+        baby shower oraz inne rodzinne okazje.
       </p>
 
     </div>
 
 
-    <div class="cards">
+    <!-- IMPREZY NOCNE -->
+
+    <div
+      class="card clickable-card"
+      onclick="openImageModal('Ofertaimprezowanowa.png')"
+    >
+
+      <div class="card-icon">🪩</div>
+
+      <h3>Imprezy nocne</h3>
+
+      <p>
+        Urodziny dorosłych, wieczory panieńskie,
+        kawalerskie i imprezy ze znajomymi.
+      </p>
+
+    </div>
 
 
-      <!-- IMPREZY RODZINNE -->
+    <!-- WYDARZENIA SPECJALNE -->
 
-      <div
-        class="card clickable-card"
-        onclick="openImageModal('imprezyrodzinne.jpg')"
-      >
+    <div
+      class="card clickable-card"
+      onclick="openSpecialModal()"
+    >
 
-        <div class="card-icon">
-          🎂
-        </div>
+      <div class="card-icon">✨</div>
 
-        <h3>
-          Imprezy rodzinne
-        </h3>
+      <h3>Wydarzenia specjalne</h3>
 
-        <p>
-          Urodziny, roczki, chrzciny, rocznice,
-          baby shower oraz inne rodzinne okazje.
-        </p>
-
-      </div>
-
-
-      <!-- IMPREZY NOCNE -->
-
-      <div
-        class="card clickable-card"
-        onclick="openImageModal('Ofertaimprezowanowa.png')"
-      >
-
-        <div class="card-icon">
-          🪩
-        </div>
-
-        <h3>
-          Imprezy nocne
-        </h3>
-
-        <p>
-          Urodziny dorosłych, wieczory panieńskie,
-          kawalerskie, imprezy ze znajomymi
-          i nocne wydarzenia w ZUZU.
-        </p>
-
-      </div>
-
-
-      <!-- WYDARZENIA SPECJALNE -->
-
-      <div
-        class="card clickable-card"
-        onclick="openSpecialModal()"
-      >
-
-        <div class="card-icon">
-          ✨
-        </div>
-
-        <h3>
-          Wydarzenia specjalne
-        </h3>
-
-        <p>
-          Komunie, Wigilie firmowe,
-          Wigilie rodzinne, Sylwester
-          i inne wydarzenia sezonowe.
-        </p>
-
-      </div>
-
+      <p>
+        Komunie, Wigilie firmowe,
+        Wigilie rodzinne oraz Sylwester.
+      </p>
 
     </div>
 
   </div>
 
+</div>
+
 </section>
 
 
-<!-- =====================================================
-     CATERING
-===================================================== -->
+<!-- ================= CATERING ================= -->
 
 <section class="section catering" id="catering">
 
-  <div class="container">
+<div class="container">
 
-    <div class="section-title">
+  <div class="section-title">
 
-      <span>Smaki ZUZU</span>
+    <span>Smaki ZUZU</span>
 
-      <h2>Catering</h2>
+    <h2>Catering</h2>
 
-      <p>
-        Catering na imprezy organizowane w ZUZU
-        oraz na wynos.
-      </p>
+    <p>
+      Catering na imprezy organizowane w ZUZU
+      oraz na wynos.
+    </p>
 
+  </div>
+
+
+  <div class="catering-grid">
+
+    <div class="catering-box">
+      <h3>🥗 Sałatki</h3>
+      <p>Klasyczne i imprezowe propozycje.</p>
     </div>
 
-
-    <div class="catering-grid">
-
-
-      <div class="catering-box">
-
-        <h3>
-          🥗 Sałatki
-        </h3>
-
-        <p>
-          Klasyczne i imprezowe propozycje.
-        </p>
-
-      </div>
-
-
-      <div class="catering-box">
-
-        <h3>
-          🥪 Zimne przekąski
-        </h3>
-
-        <p>
-          Mini burgery, tortille, koreczki,
-          tartaletki, kanapeczki i inne przekąski.
-        </p>
-
-      </div>
-
-
-      <div class="catering-box">
-
-        <h3>
-          🍲 Dania ciepłe
-        </h3>
-
-        <p>
-          Zupy, mięsa oraz dania obiadowe.
-        </p>
-
-      </div>
-
-
-      <div class="catering-box">
-
-        <h3>
-          🧀 Deski i boxy
-        </h3>
-
-        <p>
-          Deski mięs i serów oraz imprezowe boxy.
-        </p>
-
-      </div>
-
-
+    <div class="catering-box">
+      <h3>🥪 Zimne przekąski</h3>
+      <p>Mini burgery, tortille, koreczki, tartaletki i kanapeczki.</p>
     </div>
 
-    <div style="text-align:center; margin-top:35px;">
+    <div class="catering-box">
+      <h3>🍲 Dania ciepłe</h3>
+      <p>Zupy, mięsa oraz dania obiadowe.</p>
+    </div>
 
-      <a href="#wybor" class="button button-pink">
-        Wybierz catering
-      </a>
-
+    <div class="catering-box">
+      <h3>🧀 Deski i boxy</h3>
+      <p>Deski mięs i serów oraz imprezowe boxy.</p>
     </div>
 
   </div>
 
+  <div style="text-align:center;margin-top:35px;">
+
+    <a href="#wybor" class="button button-pink">
+      Wybierz catering
+    </a>
+
+  </div>
+
+</div>
+
 </section>
 
 
-<!-- =====================================================
-     WYDARZENIA SPECJALNE - SEKCJA
-===================================================== -->
+<!-- ================= WYDARZENIA ================= -->
 
 <section class="section" id="wydarzenia">
 
-  <div class="container">
+<div class="container">
 
-    <div class="section-title">
+  <div class="section-title">
 
-      <span>Oferta sezonowa</span>
+    <span>Oferta sezonowa</span>
 
-      <h2>Wydarzenia specjalne</h2>
+    <h2>Wydarzenia specjalne</h2>
 
-      <p>
-        Specjalne pakiety ZUZU na wyjątkowe okazje.
-      </p>
-
-    </div>
-
-
-    <div class="special-wrapper">
-
-
-      <div class="special-card">
-
-        <h3>
-          Komunie 2027
-        </h3>
-
-        <p>
-          Kameralne przyjęcia komunijne z menu,
-          obsługą i salą na wyłączność.
-        </p>
-
-        <div class="price">
-          210 zł / osoba
-        </div>
-
-      </div>
-
-
-      <div class="special-card">
-
-        <h3>
-          Wigilia firmowa
-        </h3>
-
-        <p>
-          Sala na wyłączność, 6 potraw wigilijnych
-          według ustaleń oraz napoje w pakiecie.
-        </p>
-
-        <div class="price">
-          200 zł / osoba
-        </div>
-
-      </div>
-
-
-      <div class="special-card">
-
-        <h3>
-          Wigilia rodzinna
-        </h3>
-
-        <p>
-          Rodzinna Wigilia w ZUZU
-          z możliwością pełnego cateringu.
-        </p>
-
-        <div class="price">
-          catering 200 zł / osoba
-        </div>
-
-      </div>
-
-
-      <div class="special-card">
-
-        <h3>
-          Sylwester 2026/2027
-        </h3>
-
-        <p>
-          Cała sala na wyłączność
-          od godziny 19:00 do 6:00.
-        </p>
-
-        <div class="price">
-          wynajem 2500 zł
-        </div>
-
-      </div>
-
-
-    </div>
+    <p>
+      Kliknij wybraną ofertę i zobacz szczegóły.
+    </p>
 
   </div>
+
+
+  <div class="special-wrapper">
+
+
+    <div
+      class="special-card"
+      onclick="openImageModal('komunia.jpg')"
+    >
+
+      <h3>Komunie 2027</h3>
+
+      <p>
+        Kameralne przyjęcie komunijne
+        z menu i salą na wyłączność.
+      </p>
+
+      <div class="price">
+        210 zł / osoba
+      </div>
+
+    </div>
+
+
+    <div
+      class="special-card"
+      onclick="openImageModal('wigilia firmowa.png')"
+    >
+
+      <h3>Wigilia firmowa</h3>
+
+      <p>
+        Sala na wyłączność,
+        6 potraw wigilijnych i napoje.
+      </p>
+
+      <div class="price">
+        200 zł / osoba
+      </div>
+
+    </div>
+
+
+    <div
+      class="special-card"
+      onclick="openImageModal('wigiliawzuzu.jpg')"
+    >
+
+      <h3>Wigilia rodzinna</h3>
+
+      <p>
+        Rodzinna Wigilia w ZUZU
+        z możliwością pełnego cateringu.
+      </p>
+
+      <div class="price">
+        Catering 200 zł / osoba
+      </div>
+
+    </div>
+
+
+    <div
+      class="special-card"
+      onclick="openImageModal('sylwester.jpg')"
+    >
+
+      <h3>Sylwester 2026/2027</h3>
+
+      <p>
+        Jedna noc. Jedna ekipa.
+        Całe ZUZU tylko dla Was.
+      </p>
+
+      <div class="price">
+        Wynajem 2500 zł
+      </div>
+
+    </div>
+
+
+  </div>
+
+</div>
 
 </section>
 
 
-<!-- =====================================================
-     WYBÓR CATERINGU
-===================================================== -->
+<!-- ================= WYBÓR CATERINGU ================= -->
 
 <section class="section catering" id="wybor">
 
-  <div class="container">
+<div class="container">
 
-    <div class="section-title">
+  <div class="section-title">
 
-      <span>Stwórz swój zestaw</span>
+    <span>Stwórz swój zestaw</span>
 
-      <h2>Wybór cateringu</h2>
+    <h2>Wybór cateringu</h2>
 
-      <p>
-        Zaznacz interesujące Cię propozycje.
-      </p>
-
-    </div>
-
-
-    <div class="chooser">
-
-      <div class="chooser-header">
-
-        <h2>
-          Karta wyboru cateringu
-        </h2>
-
-      </div>
-
-
-      <div class="chooser-content">
-
-
-        <div class="choose-group">
-
-          <h3>
-            Sałatki
-          </h3>
-
-          <label class="choose-option">
-            <input type="checkbox">
-            Jarzynowa
-          </label>
-
-          <label class="choose-option">
-            <input type="checkbox">
-            Sałatka makaronowa
-          </label>
-
-          <label class="choose-option">
-            <input type="checkbox">
-            Gyros
-          </label>
-
-          <label class="choose-option">
-            <input type="checkbox">
-            Brokułowa
-          </label>
-
-        </div>
-
-
-        <div class="choose-group">
-
-          <h3>
-            Zimne przekąski
-          </h3>
-
-          <label class="choose-option">
-            <input type="checkbox">
-            Jajka z majonezem
-          </label>
-
-          <label class="choose-option">
-            <input type="checkbox">
-            Jajka z pieczarkami
-          </label>
-
-          <label class="choose-option">
-            <input type="checkbox">
-            Mini burgery
-          </label>
-
-          <label class="choose-option">
-            <input type="checkbox">
-            Ślimaczki ze szpinakiem
-          </label>
-
-          <label class="choose-option">
-            <input type="checkbox">
-            Ślimaczki z pomidorem i serem
-          </label>
-
-          <label class="choose-option">
-            <input type="checkbox">
-            Mini tortille
-          </label>
-
-          <label class="choose-option">
-            <input type="checkbox">
-            Szaszłyki
-          </label>
-
-          <label class="choose-option">
-            <input type="checkbox">
-            Koreczki
-          </label>
-
-          <label class="choose-option">
-            <input type="checkbox">
-            Kanapeczki
-          </label>
-
-          <label class="choose-option">
-            <input type="checkbox">
-            Parówki w cieście francuskim
-          </label>
-
-          <label class="choose-option">
-            <input type="checkbox">
-            Tartaletki z kremem szpinakowym
-          </label>
-
-          <label class="choose-option">
-            <input type="checkbox">
-            Tartaletki z burakiem i fetą
-          </label>
-
-          <label class="choose-option">
-            <input type="checkbox">
-            Trójkątne kanapeczki
-          </label>
-
-        </div>
-
-
-        <div class="choose-group">
-
-          <h3>
-            Zupy
-          </h3>
-
-          <label class="choose-option">
-            <input type="checkbox">
-            Rosół
-          </label>
-
-          <label class="choose-option">
-            <input type="checkbox">
-            Krem z pomidorów
-          </label>
-
-        </div>
-
-
-        <div class="choose-group">
-
-          <h3>
-            Dania ciepłe
-          </h3>
-
-          <label class="choose-option">
-            <input type="checkbox">
-            Skrzydełka z kurczaka
-          </label>
-
-          <label class="choose-option">
-            <input type="checkbox">
-            Faszerowana pierś z kurczaka
-          </label>
-
-          <label class="choose-option">
-            <input type="checkbox">
-            Kotleciki mielone w sosie beszamelowym
-          </label>
-
-          <label class="choose-option">
-            <input type="checkbox">
-            Kotlety z ciecierzycy
-          </label>
-
-          <label class="choose-option">
-            <input type="checkbox">
-            Chrupiące polędwiczki
-          </label>
-
-          <label class="choose-option">
-            <input type="checkbox">
-            Gulaszowa
-          </label>
-
-          <label class="choose-option">
-            <input type="checkbox">
-            Barszcz z krokietem
-          </label>
-
-        </div>
-
-
-        <div class="choose-group">
-
-          <h3>
-            Dania obiadowe
-          </h3>
-
-          <label class="choose-option">
-            <input type="checkbox">
-            Kotlet schabowy z ziemniakami i surówkami
-          </label>
-
-          <label class="choose-option">
-            <input type="checkbox">
-            Kotlet mielony z ziemniakami i surówkami
-          </label>
-
-        </div>
-
-
-        <div class="choose-group">
-
-          <h3>
-            Deski
-          </h3>
-
-          <label class="choose-option">
-            <input type="checkbox">
-            Deska mięs
-          </label>
-
-          <label class="choose-option">
-            <input type="checkbox">
-            Deska serów
-          </label>
-
-        </div>
-
-
-        <div class="choose-group">
-
-          <h3>
-            Boxy
-          </h3>
-
-          <label class="choose-option">
-            <input type="checkbox">
-            Box 1 - Snack Box
-          </label>
-
-          <label class="choose-option">
-            <input type="checkbox">
-            Box 2 - Vegetable Box
-          </label>
-
-          <label class="choose-option">
-            <input type="checkbox">
-            Box 3 - Mix Party Box
-          </label>
-
-          <label class="choose-option">
-            <input type="checkbox">
-            Box 4 - Kids Box
-          </label>
-
-        </div>
-
-
-        <div style="text-align:center; margin-top:30px;">
-
-          <a
-            href="tel:798150723"
-            class="button button-pink"
-          >
-            Ustal catering
-          </a>
-
-        </div>
-
-
-      </div>
-
-    </div>
+    <p>
+      Zaznacz interesujące Cię propozycje.
+    </p>
 
   </div>
 
-</section>
 
+  <div class="chooser">
 
-<!-- =====================================================
-     KONTAKT
-===================================================== -->
+    <div class="chooser-header">
 
-<section class="section contact" id="kontakt">
-
-  <div class="container">
-
-    <div class="section-title">
-
-      <span>Zarezerwuj termin</span>
-
-      <h2>Kontakt</h2>
-
-      <p>
-        Masz pytania? Zadzwoń lub napisz.
-      </p>
+      <h2>Karta wyboru cateringu</h2>
 
     </div>
 
 
-    <div class="contact-grid">
+    <div class="chooser-content">
 
 
-      <div class="contact-box">
+      <div class="choose-group">
 
-        <h3>
-          Restauracja ZUZU
-        </h3>
+        <h3>Sałatki — wybierz 2 rodzaje</h3>
 
-        <div class="contact-line">
-          📍 Witkiewicza 58/U18, Szczecin
-        </div>
+        <label class="choose-option">
+          <input type="checkbox"> Jarzynowa
+        </label>
 
-        <div class="contact-line">
+        <label class="choose-option">
+          <input type="checkbox"> Sałatka makaronowa
+        </label>
 
-          📞
-          <a href="tel:798150723">
-            798 150 723
-          </a>
+        <label class="choose-option">
+          <input type="checkbox"> Gyros
+        </label>
 
-        </div>
-
-        <div class="contact-line">
-
-          ✉
-          <a href="mailto:zuzu.szczecin@gmail.com">
-            zuzu.szczecin@gmail.com
-          </a>
-
-        </div>
+        <label class="choose-option">
+          <input type="checkbox"> Brokułowa
+        </label>
 
       </div>
 
 
-      <div class="contact-box">
+      <div class="choose-group">
 
-        <h3>
-          Zapytaj o wolny termin
-        </h3>
+        <h3>Zimne przekąski — wybierz 6 rodzajów</h3>
 
-        <p style="color:#aaa; margin-bottom:25px;">
+        <label class="choose-option">
+          <input type="checkbox"> Jajka z majonezem
+        </label>
 
-          Podaj datę, rodzaj imprezy
-          oraz orientacyjną liczbę gości.
+        <label class="choose-option">
+          <input type="checkbox"> Jajka z pieczarkami
+        </label>
 
-        </p>
+        <label class="choose-option">
+          <input type="checkbox"> Mini burgery
+        </label>
+
+        <label class="choose-option">
+          <input type="checkbox"> Ślimaczki ze szpinakiem
+        </label>
+
+        <label class="choose-option">
+          <input type="checkbox"> Ślimaczki z pomidorem i serem
+        </label>
+
+        <label class="choose-option">
+          <input type="checkbox"> Mini tortille
+        </label>
+
+        <label class="choose-option">
+          <input type="checkbox"> Szaszłyki
+        </label>
+
+        <label class="choose-option">
+          <input type="checkbox"> Koreczki
+        </label>
+
+        <label class="choose-option">
+          <input type="checkbox"> Kanapeczki
+        </label>
+
+        <label class="choose-option">
+          <input type="checkbox"> Parówki w cieście francuskim
+        </label>
+
+        <label class="choose-option">
+          <input type="checkbox"> Tartaletki z kremem szpinakowym
+        </label>
+
+        <label class="choose-option">
+          <input type="checkbox"> Tartaletki z kremem z buraka i fetą
+        </label>
+
+        <label class="choose-option">
+          <input type="checkbox"> Trójkątne kanapeczki
+        </label>
+
+      </div>
+
+
+      <div class="choose-group">
+
+        <h3>Zupy</h3>
+
+        <label class="choose-option">
+          <input type="checkbox"> Rosół z makaronem
+        </label>
+
+        <label class="choose-option">
+          <input type="checkbox"> Zupa krem z pomidorów
+        </label>
+
+      </div>
+
+
+      <div class="choose-group">
+
+        <h3>Dania ciepłe</h3>
+
+        <label class="choose-option">
+          <input type="checkbox"> Skrzydełka z kurczaka
+        </label>
+
+        <label class="choose-option">
+          <input type="checkbox"> Faszerowana pierś z kurczaka
+        </label>
+
+        <label class="choose-option">
+          <input type="checkbox"> Kotleciki mielone w sosie beszamelowym
+        </label>
+
+        <label class="choose-option">
+          <input type="checkbox"> Kotlety z ciecierzycy
+        </label>
+
+        <label class="choose-option">
+          <input type="checkbox"> Chrupiące polędwiczki
+        </label>
+
+        <label class="choose-option">
+          <input type="checkbox"> Gulaszowa z pieczywem
+        </label>
+
+        <label class="choose-option">
+          <input type="checkbox"> Barszcz z krokietem mięsnym
+        </label>
+
+      </div>
+
+
+      <div class="choose-group">
+
+        <h3>Dania obiadowe</h3>
+
+        <label class="choose-option">
+          <input type="checkbox">
+          Kotlet schabowy z ziemniakami purée + 2 surówki
+        </label>
+
+        <label class="choose-option">
+          <input type="checkbox">
+          Kotlet mielony z ziemniakami purée + 2 surówki
+        </label>
+
+      </div>
+
+
+      <div class="choose-group">
+
+        <h3>Deski</h3>
+
+        <label class="choose-option">
+          <input type="checkbox"> Deska mięs
+        </label>
+
+        <label class="choose-option">
+          <input type="checkbox"> Deska serów
+        </label>
+
+      </div>
+
+
+      <div class="choose-group">
+
+        <h3>Boxy</h3>
+
+        <label class="choose-option">
+          <input type="checkbox"> Box 1 - Snack Box
+        </label>
+
+        <label class="choose-option">
+          <input type="checkbox"> Box 2 - Vegetable Box
+        </label>
+
+        <label class="choose-option">
+          <input type="checkbox"> Box 3 - Mix Party Box
+        </label>
+
+        <label class="choose-option">
+          <input type="checkbox"> Box 4 - Kids Box
+        </label>
+
+      </div>
+
+
+      <div style="text-align:center;margin-top:30px;">
 
         <a
           href="tel:798150723"
           class="button button-pink"
         >
-          📞 Zadzwoń 798 150 723
+          Ustal catering
         </a>
 
       </div>
 
+    </div>
+
+  </div>
+
+</div>
+
+</section>
+
+
+<!-- ================= KONTAKT ================= -->
+
+<section class="section contact" id="kontakt">
+
+<div class="container">
+
+  <div class="section-title">
+
+    <span>Zarezerwuj termin</span>
+
+    <h2>Kontakt</h2>
+
+    <p>
+      Masz pytania? Zadzwoń lub napisz.
+    </p>
+
+  </div>
+
+
+  <div class="contact-grid">
+
+
+    <div class="contact-box">
+
+      <h3>Restauracja ZUZU</h3>
+
+      <div class="contact-line">
+        📍 Witkiewicza 58/U18, Szczecin
+      </div>
+
+      <div class="contact-line">
+        📞
+        <a href="tel:798150723">
+          798 150 723
+        </a>
+      </div>
+
+      <div class="contact-line">
+        ✉
+        <a href="mailto:zuzu.szczecin@gmail.com">
+          zuzu.szczecin@gmail.com
+        </a>
+      </div>
+
+    </div>
+
+
+    <div class="contact-box">
+
+      <h3>Zapytaj o wolny termin</h3>
+
+      <p style="color:#aaa;margin-bottom:25px;">
+        Podaj datę, rodzaj imprezy
+        oraz orientacyjną liczbę gości.
+      </p>
+
+      <a
+        href="tel:798150723"
+        class="button button-pink"
+      >
+        📞 Zadzwoń 798 150 723
+      </a>
 
     </div>
 
   </div>
+
+</div>
 
 </section>
 
 
 <footer>
 
-  © 2026 Restauracja ZUZU • Szczecin
+© 2026 Restauracja ZUZU • Szczecin
 
 </footer>
 
 
-<!-- =====================================================
-     MODAL POJEDYNCZEJ GRAFIKI
-===================================================== -->
+<!-- ================= PODGLĄD GRAFIKI ================= -->
 
 <div id="imageModal" class="image-modal">
 
@@ -1669,9 +1485,7 @@
 </div>
 
 
-<!-- =====================================================
-     WYDARZENIA SPECJALNE - MODAL
-===================================================== -->
+<!-- ================= WYDARZENIA SPECJALNE ================= -->
 
 <div id="specialModal" class="special-modal">
 
@@ -1682,12 +1496,9 @@
     ×
   </span>
 
-
   <div class="special-modal-box">
 
-    <h2>
-      Wydarzenia specjalne ZUZU
-    </h2>
+    <h2>Wydarzenia specjalne ZUZU</h2>
 
     <p class="special-modal-subtitle">
       Wybierz ofertę, którą chcesz zobaczyć
@@ -1701,21 +1512,17 @@
 
       <div
         class="special-offer"
-        onclick="openImageFromSpecial('komunia-2027.jpg')"
+        onclick="openImageFromSpecial('komunia.jpg')"
       >
 
         <img
-          src="komunia-2027.jpg"
+          src="komunia.jpg"
           alt="Komunia 2027"
         >
 
-        <h3>
-          Komunie 2027
-        </h3>
+        <h3>Komunie 2027</h3>
 
-        <span>
-          Zobacz ofertę →
-        </span>
+        <span>Zobacz ofertę →</span>
 
       </div>
 
@@ -1724,21 +1531,17 @@
 
       <div
         class="special-offer"
-        onclick="openImageFromSpecial('wigilia-firmowa.png')"
+        onclick="openImageFromSpecial('wigilia firmowa.png')"
       >
 
         <img
-          src="wigilia-firmowa.png"
+          src="wigilia firmowa.png"
           alt="Wigilia firmowa"
         >
 
-        <h3>
-          Wigilia firmowa
-        </h3>
+        <h3>Wigilia firmowa</h3>
 
-        <span>
-          Zobacz ofertę →
-        </span>
+        <span>Zobacz ofertę →</span>
 
       </div>
 
@@ -1747,21 +1550,17 @@
 
       <div
         class="special-offer"
-        onclick="openImageFromSpecial('wigilia-rodzinna.jpg')"
+        onclick="openImageFromSpecial('wigiliawzuzu.jpg')"
       >
 
         <img
-          src="wigilia-rodzinna.jpg"
+          src="wigiliawzuzu.jpg"
           alt="Wigilia rodzinna"
         >
 
-        <h3>
-          Wigilia rodzinna
-        </h3>
+        <h3>Wigilia rodzinna</h3>
 
-        <span>
-          Zobacz ofertę →
-        </span>
+        <span>Zobacz ofertę →</span>
 
       </div>
 
@@ -1778,13 +1577,9 @@
           alt="Sylwester 2026/2027"
         >
 
-        <h3>
-          Sylwester 2026/2027
-        </h3>
+        <h3>Sylwester 2026/2027</h3>
 
-        <span>
-          Zobacz ofertę →
-        </span>
+        <span>Zobacz ofertę →</span>
 
       </div>
 
@@ -1796,159 +1591,142 @@
 </div>
 
 
-<!-- =====================================================
-     JAVASCRIPT
-===================================================== -->
-
 <script>
 
-  /* MENU TELEFON */
+/* MENU */
 
-  const menuButton =
-    document.getElementById("menuButton");
+const menuButton =
+  document.getElementById("menuButton");
 
-  const menu =
-    document.getElementById("menu");
+const menu =
+  document.getElementById("menu");
 
+menuButton.addEventListener("click", function() {
 
-  menuButton.addEventListener("click", function() {
+  menu.classList.toggle("active");
 
-    menu.classList.toggle("active");
+});
 
-  });
+document.querySelectorAll("nav a").forEach(link => {
 
+  link.addEventListener("click", function() {
 
-  document.querySelectorAll("nav a").forEach(link => {
-
-    link.addEventListener("click", function() {
-
-      menu.classList.remove("active");
-
-    });
+    menu.classList.remove("active");
 
   });
 
-
-  /* POJEDYNCZA GRAFIKA */
-
-  function openImageModal(imageSrc) {
-
-    const modal =
-      document.getElementById("imageModal");
-
-    const modalImage =
-      document.getElementById("modalImage");
-
-    modalImage.src = imageSrc;
-
-    modal.classList.add("active");
-
-    document.body.classList.add("modal-open");
-
-  }
+});
 
 
-  function closeImageModal() {
+/* OTWIERANIE GRAFIKI */
 
-    const modal =
-      document.getElementById("imageModal");
+function openImageModal(imageSrc) {
 
-    modal.classList.remove("active");
+  const modal =
+    document.getElementById("imageModal");
 
-    document.getElementById("modalImage").src = "";
+  const image =
+    document.getElementById("modalImage");
 
-    document.body.classList.remove("modal-open");
+  image.src = imageSrc;
 
-  }
+  modal.classList.add("active");
 
+  document.body.classList.add("modal-open");
+
+}
+
+
+/* ZAMYKANIE GRAFIKI */
+
+function closeImageModal() {
 
   document
     .getElementById("imageModal")
-    .addEventListener("click", function(event) {
+    .classList.remove("active");
 
-      if (event.target === this) {
+  document
+    .getElementById("modalImage")
+    .src = "";
 
-        closeImageModal();
+  document.body.classList.remove("modal-open");
 
-      }
-
-    });
-
-
-  /* WYDARZENIA SPECJALNE */
-
-  function openSpecialModal() {
-
-    document
-      .getElementById("specialModal")
-      .classList.add("active");
-
-    document.body.classList.add("modal-open");
-
-  }
+}
 
 
-  function closeSpecialModal() {
+/* WYDARZENIA SPECJALNE */
 
-    document
-      .getElementById("specialModal")
-      .classList.remove("active");
-
-    document.body.classList.remove("modal-open");
-
-  }
-
-
-  function openImageFromSpecial(imageSrc) {
-
-    document
-      .getElementById("specialModal")
-      .classList.remove("active");
-
-    const modal =
-      document.getElementById("imageModal");
-
-    const modalImage =
-      document.getElementById("modalImage");
-
-    modalImage.src = imageSrc;
-
-    modal.classList.add("active");
-
-    document.body.classList.add("modal-open");
-
-  }
-
+function openSpecialModal() {
 
   document
     .getElementById("specialModal")
-    .addEventListener("click", function(event) {
+    .classList.add("active");
 
-      if (event.target === this) {
+  document.body.classList.add("modal-open");
 
-        closeSpecialModal();
-
-      }
-
-    });
+}
 
 
-  /* ESC ZAMYKA OKNA */
+function closeSpecialModal() {
 
-  document.addEventListener("keydown", function(event) {
+  document
+    .getElementById("specialModal")
+    .classList.remove("active");
 
-    if (event.key === "Escape") {
+  document.body.classList.remove("modal-open");
 
+}
+
+
+function openImageFromSpecial(imageSrc) {
+
+  document
+    .getElementById("specialModal")
+    .classList.remove("active");
+
+  openImageModal(imageSrc);
+
+}
+
+
+/* KLIKNIĘCIE W CZARNE TŁO */
+
+document
+  .getElementById("imageModal")
+  .addEventListener("click", function(event) {
+
+    if(event.target === this) {
       closeImageModal();
-
-      closeSpecialModal();
-
     }
 
   });
 
-</script>
 
+document
+  .getElementById("specialModal")
+  .addEventListener("click", function(event) {
+
+    if(event.target === this) {
+      closeSpecialModal();
+    }
+
+  });
+
+
+/* ESC */
+
+document.addEventListener("keydown", function(event) {
+
+  if(event.key === "Escape") {
+
+    closeImageModal();
+    closeSpecialModal();
+
+  }
+
+});
+
+</script>
 
 </body>
 </html>
