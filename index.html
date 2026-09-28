@@ -495,12 +495,9 @@ nav a:hover{
     width:min(1050px,100%);
     margin:auto;
     position:relative;
-
     background:#0d0d13;
-
     border:1px solid rgba(255,59,157,.5);
     border-radius:30px;
-
     padding:15px;
 
     box-shadow:
@@ -512,13 +509,9 @@ nav a:hover{
     position:relative;
     width:100%;
     height:650px;
-
     overflow:hidden;
-
     border-radius:20px;
-
     background:#000;
-
     display:flex;
     align-items:center;
     justify-content:center;
@@ -527,7 +520,6 @@ nav a:hover{
 .gallery-photo img{
     width:100%;
     height:100%;
-
     object-fit:contain;
 
     transition:
@@ -539,52 +531,32 @@ nav a:hover{
 
 .gallery-counter{
     position:absolute;
-
     bottom:17px;
     left:50%;
-
     transform:translateX(-50%);
-
     padding:8px 18px;
-
     border-radius:30px;
-
     background:rgba(0,0,0,.78);
-
     border:1px solid rgba(255,255,255,.25);
-
     font-size:14px;
     font-weight:900;
-
     letter-spacing:2px;
-
     backdrop-filter:blur(5px);
 }
 
 .gallery-arrow{
     position:absolute;
-
     top:50%;
-
     transform:translateY(-50%);
-
     z-index:20;
-
     width:62px;
     height:62px;
-
     border-radius:50%;
-
     border:2px solid var(--pink);
-
     background:rgba(0,0,0,.80);
-
     color:white;
-
     font-size:32px;
-
     cursor:pointer;
-
     transition:.25s;
 
     box-shadow:
@@ -593,7 +565,6 @@ nav a:hover{
 
 .gallery-arrow:hover{
     background:var(--pink);
-
     transform:
         translateY(-50%)
         scale(1.08);
@@ -609,11 +580,8 @@ nav a:hover{
 
 .gallery-help{
     text-align:center;
-
     color:#777;
-
     font-size:13px;
-
     margin-top:18px;
 }
 
@@ -676,16 +644,11 @@ nav a:hover{
 
 .image-modal{
     display:none;
-
     position:fixed;
     inset:0;
-
     z-index:30000;
-
     background:rgba(0,0,0,.96);
-
     padding:55px 20px;
-
     overflow-y:auto;
 }
 
@@ -703,11 +666,8 @@ nav a:hover{
 .modal-content img{
     width:100%;
     height:auto;
-
     max-height:88vh;
-
     object-fit:contain;
-
     border-radius:16px;
 
     box-shadow:
@@ -716,25 +676,16 @@ nav a:hover{
 
 .close-modal{
     position:fixed;
-
     top:15px;
     right:25px;
-
     z-index:30001;
-
     width:50px;
     height:50px;
-
     border-radius:50%;
-
     border:2px solid var(--pink);
-
     background:#000;
-
     color:white;
-
     font-size:31px;
-
     cursor:pointer;
 }
 
@@ -768,19 +719,13 @@ footer strong{
 
     nav{
         display:none;
-
         position:absolute;
-
         top:84px;
         left:0;
-
         width:100%;
-
         background:#08080d;
-
         flex-direction:column;
         align-items:stretch;
-
         padding:20px;
     }
 
@@ -872,7 +817,6 @@ footer strong{
 
 </head>
 
-
 <body>
 
 
@@ -956,13 +900,11 @@ footer strong{
         RESTAURACJA <span>ZUZU</span>
     </h1>
 
-
     <p>
         Magia dobrego smaku. Magia najlepszej zabawy.
         Catering, wynajem sali i wyjątkowe imprezy
         w Szczecinie.
     </p>
-
 
     <div class="hero-buttons">
 
@@ -1012,7 +954,6 @@ footer strong{
 
     <div class="about-grid">
 
-
         <div class="floor-plan">
 
             <img
@@ -1031,13 +972,11 @@ footer strong{
                 Całe ZUZU dla Was.
             </h3>
 
-
             <p>
                 Organizujemy imprezy rodzinne,
                 urodziny, chrzciny, roczki,
                 spotkania firmowe oraz wydarzenia nocne.
             </p>
-
 
             <p>
                 Nasz lokal posiada osobne przestrzenie,
@@ -1045,7 +984,6 @@ footer strong{
                 biesiadowanie z zabawą, tańcem
                 lub miejscem dla najmłodszych.
             </p>
-
 
             <div class="about-points">
 
@@ -1077,7 +1015,6 @@ footer strong{
 
         </div>
 
-
     </div>
 
 </div>
@@ -1108,7 +1045,6 @@ footer strong{
 
 
     <div class="party-grid">
-
 
         <div
             class="party-card"
@@ -1175,7 +1111,6 @@ footer strong{
             </p>
 
         </a>
-
 
     </div>
 
@@ -1271,8 +1206,6 @@ footer strong{
 </div>
 
 </section>
-
-
 <!-- ==============================
      WYDARZENIA SPECJALNE
 ============================== -->
@@ -1489,7 +1422,7 @@ footer strong{
                 class="gallery-counter"
                 id="galleryCounter"
             >
-                1 / 11
+                1 / 18
             </div>
 
         </div>
@@ -1698,7 +1631,7 @@ document
 
 
 /* ==============================
-   GALERIA
+   GALERIA — 18 ZDJĘĆ
 ============================== */
 
 const galleryImages = [
@@ -1713,7 +1646,15 @@ const galleryImages = [
     "8.jpg",
     "9.jpg",
     "10.jpg",
-    "11.jpg"
+    "11.jpg",
+
+    "Obraz ChatGPT 28 wrz 2026, 13_58_40.png",
+    "Obraz ChatGPT 28 wrz 2026, 13_58_36.png",
+    "Obraz ChatGPT 28 wrz 2026, 13_58_31.png",
+    "Obraz ChatGPT 28 wrz 2026, 13_58_26.png",
+    "Obraz ChatGPT 28 wrz 2026, 13_58_22.png",
+    "Obraz ChatGPT 28 wrz 2026, 13_58_09.png",
+    "file_0000000049a082439a907d1ba7fb6943.png"
 
 ];
 
@@ -1950,7 +1891,6 @@ document.addEventListener(
 );
 
 </script>
-
 
 </body>
 </html>
